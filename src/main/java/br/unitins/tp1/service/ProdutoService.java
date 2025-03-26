@@ -6,16 +6,14 @@ import br.unitins.tp1.dto.ProdutoDTO;
 import br.unitins.tp1.dto.ProdutoResponseDTO;
 
 public interface ProdutoService {
-
     ProdutoResponseDTO create(ProdutoDTO produto);
     void update(long id, ProdutoDTO produto);
     void delete(long id);
     ProdutoResponseDTO findById(long id);
-    ProdutoResponseDTO findByMarca(String marca);
-    ProdutoResponseDTO findByModelo(String modelo);
-    ProdutoResponseDTO findByCor(String cor);
-    ProdutoResponseDTO findByTamanho(String tamanho);
-    //ProdutoResponseDTO findByPreco(String preco);
+    List<ProdutoResponseDTO> findByMarca(String marca);
+    List<ProdutoResponseDTO> findByModelo(String modelo);
+    List<ProdutoResponseDTO> findByCor(String cor);
+    List<ProdutoResponseDTO> findByTamanho(int tamanho);
+    //List<ProdutoResponseDTO> findByPreco(Double preco);
     List<ProdutoResponseDTO> findAll();
-    
 }

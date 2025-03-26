@@ -17,5 +17,4 @@ public record ProdutoResponseDTO(
             return null;
         return new ProdutoResponseDTO(produto.getId(), produto.getNome(), produto.getMarca(), produto.getModelo(), produto.getCor(), produto.getTamanho(), produto.getPreco());
     }
-    
 }

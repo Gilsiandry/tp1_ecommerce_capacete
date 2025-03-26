@@ -31,31 +31,31 @@ public class ProdutoResource {
 
     @GET
     @Path("/marca/{marca}")
-    public ProdutoResponseDTO buscarPorMarca(String marca) { 
+    public List<ProdutoResponseDTO> buscarPorMarca(String marca) { 
         return service.findByMarca(marca);
     }
 
     @GET
     @Path("/modelo/{modelo}")
-    public ProdutoResponseDTO buscarPorModelo(String modelo) { 
+    public List<ProdutoResponseDTO> buscarPorModelo(String modelo) { 
         return service.findByModelo(modelo);
     }
 
     @GET
     @Path("/cor/{cor}")
-    public ProdutoResponseDTO buscarPorCor(String cor) { 
+    public List<ProdutoResponseDTO> buscarPorCor(String cor) { 
         return service.findByCor(cor);
     }
 
     @GET
     @Path("/tamanho/{tamanho}")
-    public ProdutoResponseDTO buscarPorTamanho(String tamanho) { 
+    public List<ProdutoResponseDTO> buscarPorTamanho(int tamanho) { 
         return service.findByTamanho(tamanho);
     }
 
    /* @GET
     @Path("/preco/{preco}")
-    public ProdutoResponseDTO buscarPorPreco(String preco) { 
+    public ProdutoResponseDTO buscarPorPreco(Double preco) { 
         return service.findByPreco(preco);
     }*/
 

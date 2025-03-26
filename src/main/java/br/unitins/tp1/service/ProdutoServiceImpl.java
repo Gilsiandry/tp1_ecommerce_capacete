@@ -62,11 +62,32 @@ public class ProdutoServiceImpl implements ProdutoService {
         return ProdutoResponseDTO.valueOf(produtoRepository.findById(id));
     }
 
-    /*@Override
-    public ProdutoResponseDTO findByMarca(String marca) {
-        return ProdutoResponseDTO.valueOf(produtoRepository.findByMarca(marca));
-    }*/
+    @Override
+    public List<ProdutoResponseDTO> findByMarca(String marca) {
+        return produtoRepository.findByMarca(marca).stream().map(produto -> ProdutoResponseDTO.valueOf(produto)).toList();
+    }
 
+    @Override
+    public List<ProdutoResponseDTO> findByModelo(String modelo) {
+        return produtoRepository.findByModelo(modelo).stream().map(produto -> ProdutoResponseDTO.valueOf(produto)).toList();
+    }
+
+    @Override
+    public List<ProdutoResponseDTO> findByCor(String cor) {
+        return produtoRepository.findByCor(cor).stream().map(produto -> ProdutoResponseDTO.valueOf(produto)).toList();
+    }
+
+    @Override
+    public List<ProdutoResponseDTO> findByTamanho(int tamanho) {
+        return produtoRepository.findByTamanho(tamanho).stream().map(produto -> ProdutoResponseDTO.valueOf(produto)).toList();
+    }
+
+    /*@Override
+    public List<ProdutoResponseDTO> findByPreco
+    (Double preco) {
+        return produtoRepository.findByPreco(findByPreco).stream().map(produto -> ProdutoResponseDTO.valueOf(produto)).toList();
+    }
+*/
 
     @Override
     public List<ProdutoResponseDTO> findAll() {
