@@ -1,0 +1,129 @@
+@startuml
+
+class Capacete {
+    nome: String
+    marca: String
+    categoria: String
+    modelo: String
+    cor: String
+    tamanho: int
+    preco: Double
+}
+
+class Informacao {
+    descricao: String
+    ano_lancamento: String
+    tipo_fechamento: String
+    tipo_forracao: String
+
+}
+
+class Acessorio {
+    nome: String
+}
+
+class Certificacao {
+    nome: String
+    pais: String
+    descricao: String
+}
+
+
+class Usuario {
+    nome: String
+    email: String
+    senha: String
+    tipoUsuario: TipoUsuario
+    tipoPessoa: TipoPessoa
+}
+
+enum TipoUsuario {
+    cliente: int
+    administrador: int
+}
+
+enum TipoPessoa {
+    fisica: int
+    juridica: int
+}
+
+class Administrador {
+    matricula: int
+}
+
+class Cliente {
+    cpf_cnpj: String
+    telefone: String
+}
+
+
+
+class EnderecoEntrega {
+    logradouro: String
+    numero: int
+    bairro: String
+    cidade: String
+    estado: String
+    cep: String
+}
+
+
+class Pedido {
+    data: LocalDateTime
+    valorTotal: Double
+}
+
+class StatusPedido {
+    dataConsulta: LocalDateTime
+    situacaoPedido: SituacaoPedido
+}
+
+enum SituacaoPedido {
+    aguardandoPagamento: int
+    pagamentoConfirmado: int
+    cancelado: int
+    enviado: int
+    entregue: int
+    devolvido: int
+}
+
+class ItemPedido {
+    quantidade: int
+    preco: Double
+}
+
+class Lote {
+    Codigo: String
+    quantidade: int
+    dataFabricacao: DateTime
+}
+
+
+'relacionamento
+
+Capacete "*" --> "*" Certificacao
+Capacete "*" --> "*" Acessorio
+Capacete "1" --> "*" Informacao
+
+
+Usuario --> TipoUsuario
+Usuario --> TipoPessoa
+Usuario --> Cliente
+Usuario --> Administrador
+Cliente "1" --> "*" EnderecoEntrega
+
+
+Pedido --> Cliente
+Pedido --> StatusPedido
+Pedido --> ItemPedido
+Pedido --> EnderecoEntrega
+StatusPedido --> SituacaoPedido
+ItemPedido --> Lote
+
+Lote --> Capacete
+
+
+Cliente --> Capacete
+
+
+@enduml

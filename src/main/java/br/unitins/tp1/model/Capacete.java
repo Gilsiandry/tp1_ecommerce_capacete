@@ -1,10 +1,13 @@
 package br.unitins.tp1.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 
 @Entity
-public class Produto extends DefaultEntity {
+public class Capacete extends DefaultEntity {
 
     @Column(length = 30, nullable = false)
     private String nome;
@@ -23,6 +26,12 @@ public class Produto extends DefaultEntity {
 
     @Column(nullable = false)
     private Double preco;
+
+
+    @ManyToMany()
+    @Column(nullable = true)
+    private List<Acessorio> acessorios;
+
 
     // Getters e setters
 
@@ -72,5 +81,13 @@ public class Produto extends DefaultEntity {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public List<Acessorio> getAcessorios() {
+        return acessorios;
+    }
+
+    public void setAcessorios(List<Acessorio> acessorios) {
+        this.acessorios = acessorios;
     }
 }
