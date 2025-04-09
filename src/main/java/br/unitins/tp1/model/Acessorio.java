@@ -9,7 +9,10 @@ public class Acessorio extends DefaultEntity {
     @Column(length = 30, nullable = false)
     private String nome;
 
-    // Getters e setters
+    @Column(length = 30, nullable = false)
+    private String cor;
+
+    
 
     public String getNome() {
         return nome;
@@ -17,5 +20,13 @@ public class Acessorio extends DefaultEntity {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+      public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 }

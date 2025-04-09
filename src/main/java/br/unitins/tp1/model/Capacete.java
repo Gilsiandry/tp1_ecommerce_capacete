@@ -16,6 +16,9 @@ public class Capacete extends DefaultEntity {
     private String marca;
 
     @Column(length = 30, nullable = false)
+    private String categoria;
+
+    @Column(length = 30, nullable = false)
     private String modelo;
 
     @Column(length = 20, nullable = false)
@@ -33,7 +36,7 @@ public class Capacete extends DefaultEntity {
     private List<Acessorio> acessorios;
 
 
-    // Getters e setters
+    
 
     public String getNome() {
         return nome;
@@ -49,6 +52,14 @@ public class Capacete extends DefaultEntity {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getModelo() {
@@ -82,6 +93,8 @@ public class Capacete extends DefaultEntity {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+
 
     public List<Acessorio> getAcessorios() {
         return acessorios;

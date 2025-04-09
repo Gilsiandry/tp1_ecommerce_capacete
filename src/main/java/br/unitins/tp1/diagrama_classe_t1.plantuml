@@ -10,16 +10,19 @@ class Capacete {
     preco: Double
 }
 
+class Jugular {
+    tipo_fechamento: String
+    
+}
+
 class Informacao {
     descricao: String
-    ano_lancamento: String
-    tipo_fechamento: String
-    tipo_forracao: String
-
+    ano_lancamento: Year
 }
 
 class Acessorio {
     nome: String
+    cor: String
 }
 
 class Certificacao {
@@ -27,6 +30,12 @@ class Certificacao {
     pais: String
     descricao: String
 }
+
+class Lote {
+    Codigo: String
+    dataFabricacao: DateTime
+}
+
 
 
 class Usuario {
@@ -55,7 +64,6 @@ class Cliente {
     cpf_cnpj: String
     telefone: String
 }
-
 
 
 class EnderecoEntrega {
@@ -92,38 +100,28 @@ class ItemPedido {
     preco: Double
 }
 
-class Lote {
-    Codigo: String
-    quantidade: int
-    dataFabricacao: DateTime
-}
-
 
 'relacionamento
 
-Capacete "*" --> "*" Certificacao
+Capacete "*" --> "*"Certificacao
 Capacete "*" --> "*" Acessorio
-Capacete "1" --> "*" Informacao
+Capacete "*" --> "*" Informacao
+Capacete "*" --> "1" Lote
+Capacete "1" --> "1" Jugular
 
 
-Usuario --> TipoUsuario
-Usuario --> TipoPessoa
-Usuario --> Cliente
-Usuario --> Administrador
+Usuario "1" --> "*" TipoUsuario
+Usuario "1" --> "*" TipoPessoa
+Usuario "1" --> "1" Cliente
+Usuario "1" --> "1" Administrador
 Cliente "1" --> "*" EnderecoEntrega
 
 
-Pedido --> Cliente
-Pedido --> StatusPedido
-Pedido --> ItemPedido
-Pedido --> EnderecoEntrega
-StatusPedido --> SituacaoPedido
-ItemPedido --> Lote
-
-Lote --> Capacete
-
-
-Cliente --> Capacete
-
+Pedido "*" --> "1" Cliente
+Pedido "1" --> "*" StatusPedido
+Pedido "1" --> "*" ItemPedido
+Pedido "*" --> "1" EnderecoEntrega
+StatusPedido "*" --> "1" SituacaoPedido
+ItemPedido "*" --> "1" Capacete
 
 @enduml

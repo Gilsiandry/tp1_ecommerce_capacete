@@ -2,9 +2,9 @@ package br.unitins.tp1.resource;
 
 import java.util.List;
 
-import br.unitins.tp1.dto.ProdutoDTO;
-import br.unitins.tp1.dto.ProdutoResponseDTO;
-import br.unitins.tp1.service.ProdutoService;
+import br.unitins.tp1.dto.CapaceteDTO;
+import br.unitins.tp1.dto.CapaceteResponseDTO;
+import br.unitins.tp1.service.CapaceteService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
@@ -16,46 +16,52 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("produtos")
+@Path("capacetes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ProdutoResource {
+public class CapaceteResource {
 
     @Inject
-    ProdutoService service;
+    CapaceteService service;
 
     @GET
-    public List<ProdutoResponseDTO> buscarTodos() { 
+    public List<CapaceteResponseDTO> buscarTodos() { 
         return service.findAll();
     }
 
     @GET
     @Path("/marca/{marca}")
-    public List<ProdutoResponseDTO> buscarPorMarca(String marca) { 
+    public List<CapaceteResponseDTO> buscarPorMarca(String marca) { 
         return service.findByMarca(marca);
     }
 
     @GET
+    @Path("/marca/{marca}")
+    public List<CapaceteResponseDTO> buscarPorCategoria(String categoria) { 
+        return service.findByCategoria(categoria);
+    }
+
+    @GET
     @Path("/modelo/{modelo}")
-    public List<ProdutoResponseDTO> buscarPorModelo(String modelo) { 
+    public List<CapaceteResponseDTO> buscarPorModelo(String modelo) { 
         return service.findByModelo(modelo);
     }
 
     @GET
     @Path("/cor/{cor}")
-    public List<ProdutoResponseDTO> buscarPorCor(String cor) { 
+    public List<CapaceteResponseDTO> buscarPorCor(String cor) { 
         return service.findByCor(cor);
     }
 
     @GET
     @Path("/tamanho/{tamanho}")
-    public List<ProdutoResponseDTO> buscarPorTamanho(int tamanho) { 
+    public List<CapaceteResponseDTO> buscarPorTamanho(int tamanho) { 
         return service.findByTamanho(tamanho);
     }
 
    /* @GET
     @Path("/preco/{preco}")
-    public ProdutoResponseDTO buscarPorPreco(Double preco) { 
+    public CapaceteResponseDTO buscarPorPreco(Double preco) { 
         return service.findByPreco(preco);
     }*/
 
@@ -64,13 +70,13 @@ public class ProdutoResource {
 
 
     @POST
-    public ProdutoResponseDTO incluir(ProdutoDTO dto) {
+    public CapaceteResponseDTO incluir(CapaceteDTO dto) {
         return service.create(dto);
     }
 
     @PUT
     @Path("/{id}")
-    public void alterar(Long id, ProdutoDTO dto) {
+    public void alterar(Long id, CapaceteDTO dto) {
         service.update(id, dto);
     }
 
