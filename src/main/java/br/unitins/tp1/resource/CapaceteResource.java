@@ -7,6 +7,7 @@ import br.unitins.tp1.dto.CapaceteResponseDTO;
 import br.unitins.tp1.service.CapaceteService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -15,6 +16,8 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 
 @Path("capacetes")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +28,47 @@ public class CapaceteResource {
     CapaceteService service;
 
     @GET
+    public Response buscarTodos() { 
+        return Response.ok().entity(service.findAll()).build();
+    }
+
+    @GET
+    @Path("/marca/{marca}")
+    public Response buscarPorSigla(String marca) { 
+        return Response.ok().entity(service.findByMarca(marca)).build();
+    }
+
+    @GET
+    @Path("/categoria/{categoria}")
+    public Response buscarPorCategoria(String categoria) { 
+        return Response.ok().entity(service.findByCategoria(categoria)).build();
+    }
+
+    @GET
+    @Path("/modelo/{modelo}")
+    public Response buscarPorModelo(String modelo) { 
+        return Response.ok().entity(service.findByModelo(modelo)).build();
+    }
+
+    @GET
+    @Path("/cor/{cor}")
+    public Response buscarPorCor(String cor) { 
+        return Response.ok().entity(service.findByCor(cor)).build();
+    }
+
+    @GET
+    @Path("/tamanho/{tamanho}")
+    public Response buscarPorTamanho(String tamanho) { 
+        return Response.ok().entity(service.findByTamanho(tamanho)).build();
+    }
+
+    /*@GET
+    @Path("/preco/{preco}")
+    public Response buscarPorPreco(String preco) { 
+        return Response.ok().entity(service.findByPreco(preco)).build();
+    }*/
+
+    /*@GET
     public List<CapaceteResponseDTO> buscarTodos() { 
         return service.findAll();
     }
@@ -36,7 +80,7 @@ public class CapaceteResource {
     }
 
     @GET
-    @Path("/marca/{marca}")
+    @Path("/categoria/{categoria}")
     public List<CapaceteResponseDTO> buscarPorCategoria(String categoria) { 
         return service.findByCategoria(categoria);
     }
@@ -66,10 +110,30 @@ public class CapaceteResource {
     }*/
 
     
+   @POST
+    public Response incluir(@Valid CapaceteDTO dto) {
+        return Response.status(Status.CREATED).entity(service.create(dto)).build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    public Response alterar(Long id, CapaceteDTO dto) {
+        service.update(id, dto);
+        return Response.noContent().build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Transactional
+    public Response apagar(Long id) {
+        service.delete(id);
+        return Response.noContent().build();
+    }
+
+}
 
 
-
-    @POST
+    /*@POST
     public CapaceteResponseDTO incluir(CapaceteDTO dto) {
         return service.create(dto);
     }
@@ -87,4 +151,4 @@ public class CapaceteResource {
         service.delete(id);
     }
 
-}
+}*/

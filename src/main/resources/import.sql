@@ -17,19 +17,18 @@ insert into acessorio (nome, cor) values ('Oculos de Proteção', 'camaleão')
 insert into acessorio (nome, cor) values ('Narigueira', 'preta')
 
 
+insert into certificacao (nome, pais, descricao) values ('Imetro', 'Brasil', 'Instituto Nacional de Metrologia, Qualidade e Tecnologia - Brasil');
+insert into certificacao (nome, pais, descricao) values ('Sharp', 'Reino Unido', 'Safety Helmet Assessment and Rating Programme - Reino Unido');
+insert into certificacao (nome, pais, descricao) values ('Dot', 'Estados Unidos da América', 'Department of Transportation - EUA');
+insert into certificacao (nome, pais, descricao) values ('Snell', 'Estados Unidos da América', 'Snell Memorial Foundation - EUA');
+insert into certificacao (nome, pais, descricao) values ('Ecc 22.06', 'Suíça', 'Economic Commission for Europe - Europa');
 
--- Capacetes
--- insert into jugular (tipo_fechamento) values ('D-ring');
--- insert into jugular (tipo_fechamento) values ('Clic-Clac');
--- insert into jugular (tipo_fechamento) values ('Micrométrico');
--- insert into jugular (tipo_fechamento) values ('Cartucho');
 
+insert into jugular (tipoFechamento) values ('D-ring');
+insert into jugular (tipoFechamento) values ('Clic-Clac');
+insert into jugular (tipoFechamento) values ('Micrométrico');
+insert into jugular (tipoFechamento) values ('Cartucho');
 
--- Certificados
--- insert into certificacao (nome, pais, descricao) values ('Imetro', 'Brasil', 'Instituto Nacional de Metrologia, Qualidade e Tecnologia - Brasil');
--- insert into certificacao (nome, pais, descricao) values ('Sharp', 'Reino Unido', 'Safety Helmet Assessment and Rating Programme - Reino Unido');
--- insert into certificacao (nome, pais, descricao) values ('Dot', 'Estados Unidos da América', 'Department of Transportation - EUA');
--- insert into certificacao (nome, pais, descricao) values ('Snell', 'Estados Unidos da América', 'Snell Memorial Foundation - EUA');
 
 -- CapacetesCertificados
 -- insert into capacetes_certificados (capacete_id, certificado_id) values (1, 1);

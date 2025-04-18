@@ -11,13 +11,13 @@ class Capacete {
 }
 
 class Jugular {
-    tipo_fechamento: String
+    tipoFechamento: String
     
 }
 
 class Informacao {
     descricao: String
-    ano_lancamento: Year
+    anoLancamento: Year
 }
 
 class Acessorio {
