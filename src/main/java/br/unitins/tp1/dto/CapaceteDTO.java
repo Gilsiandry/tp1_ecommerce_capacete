@@ -28,7 +28,7 @@ public record CapaceteDTO(
 
     @NotBlank(message = "O tamanho deve ser informado.")
     @Size(min = 2, max = 2, message = "O tamanho deve possuir 2 caracteres.")
-    String tamanho,
+    int tamanho,
 
     @NotNull(message = "O preço deve ser informado.")
     @Positive(message = "O preço deve ser maior que zero.")

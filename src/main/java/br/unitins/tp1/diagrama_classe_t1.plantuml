@@ -42,13 +42,13 @@ class Usuario {
     nome: String
     email: String
     senha: String
-    tipoUsuario: TipoUsuario
+    perfil: Perfil
     tipoPessoa: TipoPessoa
 }
 
-enum TipoUsuario {
-    cliente: int
+enum Perfil {
     administrador: int
+    cliente: int
 }
 
 enum TipoPessoa {
@@ -110,7 +110,7 @@ Capacete "*" --> "1" Lote
 Capacete "1" --> "1" Jugular
 
 
-Usuario "1" --> "*" TipoUsuario
+Usuario "1" --> "*" Perfil
 Usuario "1" --> "*" TipoPessoa
 Usuario "1" --> "1" Cliente
 Usuario "1" --> "1" Administrador

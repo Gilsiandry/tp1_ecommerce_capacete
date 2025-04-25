@@ -58,13 +58,13 @@ public class CapaceteResource {
 
     @GET
     @Path("/tamanho/{tamanho}")
-    public Response buscarPorTamanho(String tamanho) { 
+    public Response buscarPorTamanho(int tamanho) { 
         return Response.ok().entity(service.findByTamanho(tamanho)).build();
     }
 
     /*@GET
     @Path("/preco/{preco}")
-    public Response buscarPorPreco(String preco) { 
+    public Response buscarPorPreco(Double preco) { 
         return Response.ok().entity(service.findByPreco(preco)).build();
     }*/
 

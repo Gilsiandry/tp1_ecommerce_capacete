@@ -11,6 +11,6 @@ public interface JugularService {
     void delete(long id);
     JugularResponseDTO findById(long id);
     List<JugularResponseDTO> findByCapacete(Long IdCapacete);
-    List<JugularResponseDTO> findBytipoFechamento(String tipoFechamento);
+    List<JugularResponseDTO> findByTipoFechamento(String tipoFechamento);
     List<JugularResponseDTO> findAll();
 }

@@ -29,7 +29,7 @@ public class CapaceteServiceImpl implements CapaceteService {
         novoCapacete.setModelo(capacete.modelo());
         novoCapacete.setCor(capacete.cor());
         novoCapacete.setTamanho(capacete.tamanho());
-        //novoCapacete.setPreco(capacete.preco()));
+        //novoCapacete.setPreco(capacete.preco());
        
 
         // realizando inclusao
