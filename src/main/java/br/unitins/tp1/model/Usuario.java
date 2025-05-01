@@ -1,14 +1,22 @@
 package br.unitins.tp1.model;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Usuario extends DefaultEntity {
         @Column(unique = true)
         private String email;
         private String senha;
+
+        @Enumerated(EnumType.STRING)
         private Perfil perfil;
-        private TipoPessoa tipoPessoa;
+
+        @OneToOne(cascade = CascadeType.ALL)
+        private Pessoa pessoa;
 
         
         public String getEmail() {
@@ -32,10 +40,10 @@ public class Usuario extends DefaultEntity {
             this.perfil = perfil;
         }
 
-         public TipoPessoa getTipoPessoa() {
-            return tipoPessoa;
+         public Pessoa getPessoa() {
+            return pessoa;
         }
-        public void setTipoPessoa(TipoPessoa tipoPessoa) {
-            this.tipoPessoa = tipoPessoa;
+        public void setPessoa(Pessoa Pessoa) {
+            this.pessoa = Pessoa;
         }
 }

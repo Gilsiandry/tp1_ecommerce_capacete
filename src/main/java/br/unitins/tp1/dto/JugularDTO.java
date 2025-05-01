@@ -1,7 +1,7 @@
 package br.unitins.tp1.dto;
 
 public record JugularDTO(
-    String tioFechamento,
+    String tipoFechamento,
     Long idCapacete) {
     
 }

@@ -11,10 +11,10 @@ insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) value
 insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'Shoei', 'Aberto', 'ss1', 'verde', 60, 1399);
 insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'LS2', 'Articulado', 'll1', 'azul', 62, 999);
 
-insert into acessorio (nome, cor) values ('viseira', 'cristal')
-insert into acessorio (nome, cor) values ('Oculos Solar', 'fume')
-insert into acessorio (nome, cor) values ('Oculos de Proteção', 'camaleão')
-insert into acessorio (nome, cor) values ('Narigueira', 'preta')
+insert into acessorio (nome, cor) values ('viseira', 'cristal');
+insert into acessorio (nome, cor) values ('Oculos Solar', 'fume');
+insert into acessorio (nome, cor) values ('Oculos de Proteção', 'camaleão');
+insert into acessorio (nome, cor) values ('Narigueira', 'preta');
 
 
 insert into certificacao (nome, pais, descricao) values ('Imetro', 'Brasil', 'Instituto Nacional de Metrologia, Qualidade e Tecnologia - Brasil');
@@ -39,3 +39,14 @@ insert into jugular (tipoFechamento) values ('Cartucho');
 --insert into categoria (nome, id_capacete) values ('Articulado', 2);
 --insert into categoria (nome, id_capacete) values ('Aberto', 3);
 --insert into categoria (nome, id_capacete) values ('Off-Road', 4);
+
+
+insert into pessoa (nome) values ('Gilsiandry Carvalho');
+insert into pessoa (nome) values ('Felipe Augusto');
+insert into pessoa (nome) values ('Loja do Motociclista');
+insert into pessoa (nome) values ('Tudo de moto');
+
+insert into pessoafisica (id, cpf) values (1, '11111111111');
+insert into pessoafisica (id, cpf) values (2, '22222222222');
+insert into pessoajuridica (id, cnpj) values (1, '33333333333');
+insert into pessoajuridica (id, cnpj) values (2, '44444444444');

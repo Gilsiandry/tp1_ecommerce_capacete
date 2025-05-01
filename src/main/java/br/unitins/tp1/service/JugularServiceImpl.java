@@ -25,7 +25,7 @@ public class JugularServiceImpl implements JugularService {
     @Transactional
     public JugularResponseDTO create(JugularDTO dto) {
         Jugular novaJugular = new Jugular();
-        novaJugular.setTipoFechamento(dto.tipoFechamento());
+        novaJugular.setTipoFechamento(dto.tipoFechamento()); // O método setTipoFechametno não existe no Julstar.java
 
         // buscando o capacete pelo id
         Capacete capacete = capaceteRepository.findById(dto.idCapacete());

@@ -1,9 +1,6 @@
 package br.unitins.tp1.resource;
 
-import java.util.List;
-
 import br.unitins.tp1.dto.CapaceteDTO;
-import br.unitins.tp1.dto.CapaceteResponseDTO;
 import br.unitins.tp1.service.CapaceteService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -14,6 +11,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -62,11 +60,12 @@ public class CapaceteResource {
         return Response.ok().entity(service.findByTamanho(tamanho)).build();
     }
 
-    /*@GET
-    @Path("/preco/{preco}")
-    public Response buscarPorPreco(Double preco) { 
-        return Response.ok().entity(service.findByPreco(preco)).build();
-    }*/
+ 
+    @GET
+    @Path("/search/preco/{min}/{max}")
+    public Response findByPreco(@PathParam("min") Double min, @PathParam("max") Double max) {
+        return Response.ok().entity(service.findByPreco(min, max)).build();
+    }
 
     /*@GET
     public List<CapaceteResponseDTO> buscarTodos() { 

@@ -9,8 +9,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class JugularRepository implements PanacheRepository<Jugular> {
 
- public List<Capacete> findByNome(String nome) {
-        return find("SELECT p FROM Capacete p WHERE UPPER(p.nome) LIKE ?1 ", "%" + nome.toUpperCase() + "%").list();
-        
+    public List<Jugular> findByTipoFechamento(String tipoFechamento) {
+        return find("SELECT m FROM Jugular m WHERE m.tipoFechamento LIKE ?1 ", "%" + tipoFechamento + "%").list();
+    }
+
+    public List<Jugular> findByCapacete(Long idCapacete) {
+        return find("SELECT m FROM Jugular m WHERE m.capacete.id = ?1", idCapacete).list();
+    }
 
 }

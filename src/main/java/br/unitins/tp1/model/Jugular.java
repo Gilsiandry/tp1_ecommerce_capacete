@@ -15,25 +15,20 @@ public class Jugular extends DefaultEntity {
     @JoinColumn(name = "id_capacete")
     private Capacete capacete;
 
-    
 
     public String getTipoFechamento() {
         return tipoFechamento;
     }
 
-    public void setNome(String tipoFechamento) {
+    public void setTipoFechamento(String tipoFechamento) {
         this.tipoFechamento = tipoFechamento;
     }
-
     
-      public Capacete getCapacete() {
+    public Capacete getCapacete() {
         return capacete;
     }
 
     public void setCapacete(Capacete capacete) {
         this.capacete = capacete;
     }
-
-
-    
 }

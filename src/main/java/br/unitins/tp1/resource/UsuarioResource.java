@@ -1,9 +1,6 @@
 package br.unitins.tp1.resource;
 
-import java.util.List;
-
 import br.unitins.tp1.dto.UsuarioDTO;
-/*import br.unitins.tp1.dto.UsuarioResponseDTO;*/
 import br.unitins.tp1.service.UsuarioService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -35,7 +32,7 @@ public class UsuarioResource {
      @GET
     @Path("/usuario/{id}")
     public Response buscarPorUsuario(Long id) { 
-        return Response.status(Status.OK).entity(service.findByUsuario(id)).build();
+        return Response.status(Status.OK).entity(service.findById(id)).build();
     }
 
     @GET

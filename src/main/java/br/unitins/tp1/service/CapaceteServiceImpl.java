@@ -49,7 +49,7 @@ public class CapaceteServiceImpl implements CapaceteService {
         edicaoCapacete.setModelo(capacete.modelo());
         edicaoCapacete.setCor(capacete.cor());
         edicaoCapacete.setTamanho(capacete.tamanho());
-       // edicaoCapacete.setPreco(capacete.preco());
+        edicaoCapacete.setPreco(capacete.preco());
     
     }
 
@@ -89,12 +89,11 @@ public class CapaceteServiceImpl implements CapaceteService {
         return capaceteRepository.findByTamanho(tamanho).stream().map(capacete -> CapaceteResponseDTO.valueOf(capacete)).toList();
     }
 
-    /*@Override
-    public List<CapaceteResponseDTO> findByPreco
-    (Double preco) {
-        return capaceteRepository.findByPreco(findByPreco).stream().map(capacete -> CapaceteResponseDTO.valueOf(capacete)).toList();
+    @Override
+    public List<CapaceteResponseDTO> findByPreco(Double min, Double max) {
+        return capaceteRepository.findByPreco(min, max).stream().map(capacete -> CapaceteResponseDTO.valueOf(capacete)).toList();
     }
-*/
+
 
     @Override
     public List<CapaceteResponseDTO> findAll() {

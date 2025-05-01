@@ -39,11 +39,9 @@ class Lote {
 
 
 class Usuario {
-    nome: String
     email: String
     senha: String
     perfil: Perfil
-    tipoPessoa: TipoPessoa
 }
 
 enum Perfil {
@@ -51,14 +49,22 @@ enum Perfil {
     cliente: int
 }
 
-enum TipoPessoa {
-    fisica: int
-    juridica: int
-}
-
 class Administrador {
     matricula: int
 }
+
+abstract Pessoa {
+    nome: String
+}
+
+class PessoaFisica{
+    cpf: String
+}
+
+class PessoaJuridica{
+    cnpj: String
+}
+
 
 class Cliente {
     cpf_cnpj: String
@@ -111,7 +117,7 @@ Capacete "1" --> "1" Jugular
 
 
 Usuario "1" --> "*" Perfil
-Usuario "1" --> "*" TipoPessoa
+Usuario "1" --> "1" Pessoa
 Usuario "1" --> "1" Cliente
 Usuario "1" --> "1" Administrador
 Cliente "1" --> "*" EnderecoEntrega
@@ -123,5 +129,9 @@ Pedido "1" --> "*" ItemPedido
 Pedido "*" --> "1" EnderecoEntrega
 StatusPedido "*" --> "1" SituacaoPedido
 ItemPedido "*" --> "1" Capacete
+
+
+PessoaFisica --|> Pessoa
+PessoaJuridica --|> Pessoa
 
 @enduml

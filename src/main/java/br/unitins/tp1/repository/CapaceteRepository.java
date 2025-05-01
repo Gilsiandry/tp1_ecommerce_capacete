@@ -33,11 +33,11 @@ public class CapaceteRepository implements PanacheRepository<Capacete> {
     }
 
     public List<Capacete> findByTamanho(int tamanho) {
-        return find("SELECT p FROM Capacete p WHERE p.tamanho LIKE ?1 ", "%" + tamanho.toUpperCase() + "%").list();
+        return find("SELECT p FROM Capacete WHERE p.tamanho LIKE ?1 ", tamanho).list();
+        
     }
 
-   /* public List<Capacete> findByPreco(Double preco) {
-        return find("SELECT p FROM Capacete p WHERE p.preco LIKE ?1 ", "%" + preco + "%").list();
-    } */
-
+   public List<Capacete> findByPreco(Double min, Double max) {
+        return find("SELECT p FROM Capacete WHERE p.preco BETWEEN ?1 AND ?2 ", min, max).list();
+    }
 }
