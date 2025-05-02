@@ -10,7 +10,7 @@ public interface JugularService {
     void update(long id, JugularDTO jugular);
     void delete(long id);
     JugularResponseDTO findById(long id);
-    List<JugularResponseDTO> findByCapacete(Long IdCapacete);
+    //List<JugularResponseDTO> findByCapacete(Long IdCapacete);
     List<JugularResponseDTO> findByTipoFechamento(String tipoFechamento);
     List<JugularResponseDTO> findAll();
 }

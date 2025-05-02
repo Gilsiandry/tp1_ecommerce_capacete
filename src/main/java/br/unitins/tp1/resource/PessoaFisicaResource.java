@@ -66,5 +66,4 @@ public class PessoaFisicaResource {
         service.delete(id);
         return Response.noContent().build();
     }
-
 }

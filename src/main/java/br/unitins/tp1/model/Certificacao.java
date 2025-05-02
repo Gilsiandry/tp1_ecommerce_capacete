@@ -12,7 +12,7 @@ public class Certificacao extends DefaultEntity {
     @Column(length = 30, nullable = false)
     private String pais;
 
-    @Column(length = 70, nullable = false)
+    @Column(length = 400, nullable = false)
     private String descricao;
 
     

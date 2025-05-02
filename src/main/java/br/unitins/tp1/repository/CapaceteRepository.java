@@ -9,7 +9,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class CapaceteRepository implements PanacheRepository<Capacete> {
 
-// return find("SELECT e FROM Estado e WHERE e.sigla = ?1 ", sigla).firstResult();
 
 
     public List<Capacete> findByNome(String nome) {

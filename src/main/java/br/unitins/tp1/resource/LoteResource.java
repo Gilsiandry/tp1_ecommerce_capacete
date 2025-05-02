@@ -1,7 +1,7 @@
 package br.unitins.tp1.resource;
 
-import br.unitins.tp1.dto.UsuarioDTO;
-import br.unitins.tp1.service.UsuarioService;
+import br.unitins.tp1.dto.LoteDTO;
+import br.unitins.tp1.service.LoteService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -16,40 +16,46 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 
-@Path("usuarios")
+import java.time.LocalDate;
+
+
+
+@Path("lotes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class UsuarioResource {
+public class LoteResource {
 
     @Inject
-    UsuarioService service;
+    LoteService service;
 
     @GET
     public Response buscarTodos() { 
         return Response.ok().entity(service.findAll()).build();
     }
 
-     @GET
-    @Path("/usuario/{id}")
-    public Response buscarPorUsuario(Long id) { 
-        return Response.status(Status.OK).entity(service.findById(id)).build();
+    @GET
+    @Path("/codigo/{codigo}")
+    public Response buscarPorCodigo(String codigo) { 
+        return Response.ok().entity(service.findByCodigo(codigo)).build();
     }
 
     @GET
-    @Path("/email/{email}")
-    public Response  buscarPorEmail(String email) { 
-        return Response.status(Status.OK).entity(service.findByEmail(email)).build();
+    @Path("/datafabricacao/{datafabricacao}")
+    public Response buscarPorDataFabricacao(LocalDate datafabricacao) { 
+        return Response.ok().entity(service.findByDataFabricacao(datafabricacao)).build();
     }
+
+
 
     
    @POST
-    public Response incluir(@Valid UsuarioDTO dto) {
+    public Response incluir(@Valid LoteDTO dto) {
         return Response.status(Status.CREATED).entity(service.create(dto)).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response alterar(Long id, UsuarioDTO dto) {
+    public Response alterar(Long id, LoteDTO dto) {
         service.update(id, dto);
         return Response.noContent().build();
     }

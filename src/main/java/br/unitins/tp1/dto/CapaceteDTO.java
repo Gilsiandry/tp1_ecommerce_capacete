@@ -26,8 +26,8 @@ public record CapaceteDTO(
     @Size(min = 3, max = 30, message = "A cor deve possuir entre 3 e 30 caracteres.")
     String cor,
 
-    @NotBlank(message = "O tamanho deve ser informado.")
-    @Size(min = 2, max = 2, message = "O tamanho deve possuir 2 caracteres.")
+    @NotNull(message = "O tamanho deve ser informado.")
+    @Positive(message = "O tamanho deve ser positivo e possuir 2 caracteres.")
     int tamanho,
 
     @NotNull(message = "O preço deve ser informado.")
@@ -35,16 +35,3 @@ public record CapaceteDTO(
     Double preco) {
 
     }
- 
-
-
-/*public record CapaceteDTO(
-    String nome,
-    String marca,
-    String categoria,
-    String modelo,
-    String cor,
-    int tamanho,
-    Double preco) {
-    
-}*/

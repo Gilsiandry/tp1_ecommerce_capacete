@@ -1,7 +1,7 @@
 package br.unitins.tp1.resource;
 
-import br.unitins.tp1.dto.UsuarioDTO;
-import br.unitins.tp1.service.UsuarioService;
+import br.unitins.tp1.dto.CertificacaoDTO;
+import br.unitins.tp1.service.CertificacaoService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -16,40 +16,40 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 
-@Path("usuarios")
+@Path("certificacoes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class UsuarioResource {
+public class CertificacaoResource {
 
     @Inject
-    UsuarioService service;
+    CertificacaoService service;
 
     @GET
     public Response buscarTodos() { 
         return Response.ok().entity(service.findAll()).build();
     }
 
-     @GET
-    @Path("/usuario/{id}")
-    public Response buscarPorUsuario(Long id) { 
-        return Response.status(Status.OK).entity(service.findById(id)).build();
+    @GET
+    @Path("/pais/{pais}")
+    public Response buscarPorPais(String pais) { 
+        return Response.ok().entity(service.findByPais(pais)).build();
     }
 
     @GET
-    @Path("/email/{email}")
-    public Response  buscarPorEmail(String email) { 
-        return Response.status(Status.OK).entity(service.findByEmail(email)).build();
+    @Path("/descricao/{descricao}")
+    public Response buscarPorDescricao(String descricao) { 
+        return Response.ok().entity(service.findByDescricao(descricao)).build();
     }
 
     
    @POST
-    public Response incluir(@Valid UsuarioDTO dto) {
+    public Response incluir(@Valid CertificacaoDTO dto) {
         return Response.status(Status.CREATED).entity(service.create(dto)).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response alterar(Long id, UsuarioDTO dto) {
+    public Response alterar(Long id, CertificacaoDTO dto) {
         service.update(id, dto);
         return Response.noContent().build();
     }

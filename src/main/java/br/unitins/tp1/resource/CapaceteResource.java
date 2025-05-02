@@ -32,7 +32,7 @@ public class CapaceteResource {
 
     @GET
     @Path("/marca/{marca}")
-    public Response buscarPorSigla(String marca) { 
+    public Response buscarPorMarca(String marca) { 
         return Response.ok().entity(service.findByMarca(marca)).build();
     }
 
@@ -67,47 +67,6 @@ public class CapaceteResource {
         return Response.ok().entity(service.findByPreco(min, max)).build();
     }
 
-    /*@GET
-    public List<CapaceteResponseDTO> buscarTodos() { 
-        return service.findAll();
-    }
-
-    @GET
-    @Path("/marca/{marca}")
-    public List<CapaceteResponseDTO> buscarPorMarca(String marca) { 
-        return service.findByMarca(marca);
-    }
-
-    @GET
-    @Path("/categoria/{categoria}")
-    public List<CapaceteResponseDTO> buscarPorCategoria(String categoria) { 
-        return service.findByCategoria(categoria);
-    }
-
-    @GET
-    @Path("/modelo/{modelo}")
-    public List<CapaceteResponseDTO> buscarPorModelo(String modelo) { 
-        return service.findByModelo(modelo);
-    }
-
-    @GET
-    @Path("/cor/{cor}")
-    public List<CapaceteResponseDTO> buscarPorCor(String cor) { 
-        return service.findByCor(cor);
-    }
-
-    @GET
-    @Path("/tamanho/{tamanho}")
-    public List<CapaceteResponseDTO> buscarPorTamanho(int tamanho) { 
-        return service.findByTamanho(tamanho);
-    }
-
-   /* @GET
-    @Path("/preco/{preco}")
-    public CapaceteResponseDTO buscarPorPreco(Double preco) { 
-        return service.findByPreco(preco);
-    }*/
-
     
    @POST
     public Response incluir(@Valid CapaceteDTO dto) {
@@ -128,26 +87,4 @@ public class CapaceteResource {
         service.delete(id);
         return Response.noContent().build();
     }
-
 }
-
-
-    /*@POST
-    public CapaceteResponseDTO incluir(CapaceteDTO dto) {
-        return service.create(dto);
-    }
-
-    @PUT
-    @Path("/{id}")
-    public void alterar(Long id, CapaceteDTO dto) {
-        service.update(id, dto);
-    }
-
-    @DELETE
-    @Path("/{id}")
-    @Transactional
-    public void apagar(Long id) {
-        service.delete(id);
-    }
-
-}*/

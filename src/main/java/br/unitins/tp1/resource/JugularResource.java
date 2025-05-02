@@ -29,30 +29,17 @@ public class JugularResource {
         return Response.ok().entity(service.findAll()).build();
     }
 
-     @GET
+    /* @GET
     @Path("/capacete/{id}")
     public Response buscarPorCapacete(Long id) { 
         return Response.status(Status.OK).entity(service.findByCapacete(id)).build();
-    }
+    }*/
 
     @GET
     @Path("/tipoFechamento/{tipoFechamento}")
     public Response  buscarPorTipoFechamento(String tipoFechamento) { 
         return Response.status(Status.OK).entity(service.findByTipoFechamento(tipoFechamento)).build();
     }
-
-    
-    /*@GET
-    public List<JugularResponseDTO> buscarTodos() { 
-        return service.findAll();
-    }
-
-    @GET
-    @Path("/tipoFechamento/{tipoFechamento}")
-    public List<JugularResponseDTO> buscarPorTipoFechamento(String tipoFechamento) { 
-        return service.findByMarca(tipoFechamento);
-    }
-*/
 
     
    @POST
@@ -74,26 +61,4 @@ public class JugularResource {
         service.delete(id);
         return Response.noContent().build();
     }
-
 }
-
-
-    /*@POST
-    public JugularResponseDTO incluir(JugularDTO dto) {
-        return service.create(dto);
-    }
-
-    @PUT
-    @Path("/{id}")
-    public void alterar(Long id, JugularDTO dto) {
-        service.update(id, dto);
-    }
-
-    @DELETE
-    @Path("/{id}")
-    @Transactional
-    public void apagar(Long id) {
-        service.delete(id);
-    }
-
-}*/

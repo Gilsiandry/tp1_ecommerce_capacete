@@ -2,8 +2,6 @@ package br.unitins.tp1.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Jugular extends DefaultEntity {
@@ -11,9 +9,9 @@ public class Jugular extends DefaultEntity {
     @Column(length = 30, nullable = false)
     private String tipoFechamento;
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "id_capacete")
-    private Capacete capacete;
+    private Capacete capacete;*/
 
 
     public String getTipoFechamento() {
@@ -24,11 +22,11 @@ public class Jugular extends DefaultEntity {
         this.tipoFechamento = tipoFechamento;
     }
     
-    public Capacete getCapacete() {
+    /*public Capacete getCapacete() {
         return capacete;
     }
 
     public void setCapacete(Capacete capacete) {
         this.capacete = capacete;
-    }
+    }*/
 }

@@ -13,8 +13,8 @@ public class JugularRepository implements PanacheRepository<Jugular> {
         return find("SELECT m FROM Jugular m WHERE m.tipoFechamento LIKE ?1 ", "%" + tipoFechamento + "%").list();
     }
 
-    public List<Jugular> findByCapacete(Long idCapacete) {
+    /*public List<Jugular> findByCapacete(Long idCapacete) {
         return find("SELECT m FROM Jugular m WHERE m.capacete.id = ?1", idCapacete).list();
-    }
+    }*/
 
 }

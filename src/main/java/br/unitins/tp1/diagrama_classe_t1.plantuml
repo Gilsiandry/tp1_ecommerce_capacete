@@ -17,7 +17,7 @@ class Jugular {
 
 class Informacao {
     descricao: String
-    anoLancamento: Year
+    anoLancamento: Integer
 }
 
 class Acessorio {
@@ -33,7 +33,7 @@ class Certificacao {
 
 class Lote {
     Codigo: String
-    dataFabricacao: DateTime
+    dataFabricacao: LocalDate
 }
 
 

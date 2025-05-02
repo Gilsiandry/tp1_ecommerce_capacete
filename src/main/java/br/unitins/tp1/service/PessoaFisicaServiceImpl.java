@@ -56,14 +56,6 @@ public class PessoaFisicaServiceImpl implements PessoaFisicaService {
 
     @Override
     public List<PessoaFisicaResponseDTO> findByNome(String nome) {
-        // sem lambda
-        // List<PessoaFisicaResponseDTO> lista = new ArrayList<PessoaFisicaResponseDTO>();
-        // for (PessoaFisica pessoaFisica : pessoafisicaRepository.findByNome(nome)) {
-        //     lista.add(PessoaFisicaResponseDTO.valueOf(pessoaFisica));
-        // }
-        // return lista;
-
-        // com lambda
         return pessoafisicaRepository.findByNome(nome).stream().map(pf -> PessoaFisicaResponseDTO.valueOf(pf)).toList();
     }
 
@@ -71,5 +63,4 @@ public class PessoaFisicaServiceImpl implements PessoaFisicaService {
     public List<PessoaFisicaResponseDTO> findAll() {
         return pessoafisicaRepository.findAll().stream().map(e -> PessoaFisicaResponseDTO.valueOf(e)).toList();
     }
-    
 }

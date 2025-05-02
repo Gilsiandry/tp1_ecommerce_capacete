@@ -1,7 +1,7 @@
 package br.unitins.tp1.resource;
 
-import br.unitins.tp1.dto.UsuarioDTO;
-import br.unitins.tp1.service.UsuarioService;
+import br.unitins.tp1.dto.InformacaoDTO;
+import br.unitins.tp1.service.InformacaoService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -16,40 +16,41 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 
-@Path("usuarios")
+@Path("informacoes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class UsuarioResource {
+public class InformacaoResource {
 
     @Inject
-    UsuarioService service;
+    InformacaoService service;
 
     @GET
     public Response buscarTodos() { 
         return Response.ok().entity(service.findAll()).build();
     }
 
-     @GET
-    @Path("/usuario/{id}")
-    public Response buscarPorUsuario(Long id) { 
-        return Response.status(Status.OK).entity(service.findById(id)).build();
+    @GET
+    @Path("/descricao/{descricao}")
+    public Response buscarPorDescricao(String descricao) { 
+        return Response.ok().entity(service.findByDescricao(descricao)).build();
     }
 
+
     @GET
-    @Path("/email/{email}")
-    public Response  buscarPorEmail(String email) { 
-        return Response.status(Status.OK).entity(service.findByEmail(email)).build();
+    @Path("/anolancamento/{anolancamento}")
+    public Response buscarPorAnoLancamento(Integer anolancamento) { 
+        return Response.ok().entity(service.findByAnoLancamento(anolancamento)).build();
     }
 
     
    @POST
-    public Response incluir(@Valid UsuarioDTO dto) {
+    public Response incluir(@Valid InformacaoDTO dto) {
         return Response.status(Status.CREATED).entity(service.create(dto)).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response alterar(Long id, UsuarioDTO dto) {
+    public Response alterar(Long id, InformacaoDTO dto) {
         service.update(id, dto);
         return Response.noContent().build();
     }

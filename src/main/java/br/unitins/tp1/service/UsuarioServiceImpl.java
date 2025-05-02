@@ -5,7 +5,6 @@ import java.util.List;
 import br.unitins.tp1.dto.UsuarioDTO;
 import br.unitins.tp1.dto.UsuarioResponseDTO;
 import br.unitins.tp1.mapper.PessoaMapper;
-import br.unitins.tp1.model.Perfil;
 import br.unitins.tp1.model.Usuario;
 import br.unitins.tp1.repository.UsuarioRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -68,5 +67,4 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<UsuarioResponseDTO> findAll() {
         return usuarioRepository.findAll().stream().map(p -> UsuarioResponseDTO.valueOf(p)).toList();
     }
-    
 }

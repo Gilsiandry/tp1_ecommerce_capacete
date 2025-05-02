@@ -66,5 +66,4 @@ public class PessoaJuridicaResource {
         service.delete(id);
         return Response.noContent().build();
     }
-
 }

@@ -5,11 +5,11 @@
 -- insert into myentity (id, field) values(3, 'field-3');
 -- alter sequence myentity_seq restart with 4;
 
-insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'AGV', 'Fechado', 'aa1', 'azul', 56, 1050);
-insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'X11', 'Off-Road', 'xx1', 'roxo', 58, 799);
-insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'Arai', 'Fechado', 'ii1', 'amarelo', 56, 1650);
-insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'Shoei', 'Aberto', 'ss1', 'verde', 60, 1399);
-insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete', 'LS2', 'Articulado', 'll1', 'azul', 62, 999);
+insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete Speed', 'AGV', 'Fechado', 'aa1', 'Azul', 56, 1050.90);
+insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete Cross Pro', 'X11', 'Off-Road', 'xx1', 'roxo', 58, 799.50);
+insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete Touring', 'Arai', 'Fechado', 'ii1', 'amarelo', 56, 1650.99);
+insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete Bob Style', 'Shoei', 'Aberto', 'ss1', 'verde', 60, 1399.00);
+insert into capacete (nome, marca, categoria, modelo, cor, tamanho, preco) values ('Capacete Advant', 'LS2', 'Articulado', 'll1', 'azul', 62, 999.90);
 
 insert into acessorio (nome, cor) values ('viseira', 'cristal');
 insert into acessorio (nome, cor) values ('Oculos Solar', 'fume');
@@ -24,10 +24,22 @@ insert into certificacao (nome, pais, descricao) values ('Snell', 'Estados Unido
 insert into certificacao (nome, pais, descricao) values ('Ecc 22.06', 'Suíça', 'Economic Commission for Europe - Europa');
 
 
+insert into informacao (descricao, anoLancamento) values ('Capacete LS2 Articulado, ideal para quem busca segurança, conforto e praticidade para o uso urbano e em viagens.', 2025);
+insert into informacao (descricao, anoLancamento) values ('Capacete AGV Fechado. Proteção, Estilo e Desempenho.', 2024);
+
+
+
 insert into jugular (tipoFechamento) values ('D-ring');
 insert into jugular (tipoFechamento) values ('Clic-Clac');
 insert into jugular (tipoFechamento) values ('Micrométrico');
 insert into jugular (tipoFechamento) values ('Cartucho');
+
+
+insert into lote (codigo, dataFabricacao) values ('c1234', '2025-05-01');
+insert into lote (codigo, dataFabricacao) values ('c5678', '2025-05-02');
+insert into lote (codigo, dataFabricacao) values ('c9101', '2025-05-02');
+
+
 
 
 -- CapacetesCertificados

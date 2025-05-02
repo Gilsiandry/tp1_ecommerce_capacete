@@ -4,9 +4,7 @@ import java.util.List;
 
 import br.unitins.tp1.dto.JugularDTO;
 import br.unitins.tp1.dto.JugularResponseDTO;
-import br.unitins.tp1.model.Capacete;
 import br.unitins.tp1.model.Jugular;
-import br.unitins.tp1.repository.CapaceteRepository;
 import br.unitins.tp1.repository.JugularRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,19 +16,19 @@ public class JugularServiceImpl implements JugularService {
     @Inject
     JugularRepository jugularRepository;
 
-    @Inject
-    CapaceteRepository capaceteRepository;
+    /*@Inject
+    CapaceteRepository capaceteRepository;*/
 
     @Override
     @Transactional
     public JugularResponseDTO create(JugularDTO dto) {
         Jugular novaJugular = new Jugular();
-        novaJugular.setTipoFechamento(dto.tipoFechamento()); // O método setTipoFechametno não existe no Julstar.java
+        novaJugular.setTipoFechamento(dto.tipoFechamento());
 
         // buscando o capacete pelo id
-        Capacete capacete = capaceteRepository.findById(dto.idCapacete());
+        /*Capacete capacete = capaceteRepository.findById(dto.idCapacete());
 
-        novaJugular.setCapacete(capacete);
+        novaJugular.setCapacete(capacete);*/
 
         // realizando inclusao
         jugularRepository.persist(novaJugular);
@@ -44,8 +42,8 @@ public class JugularServiceImpl implements JugularService {
         Jugular edicaoJugular = jugularRepository.findById(id);
         edicaoJugular.setTipoFechamento(dto.tipoFechamento());
         // buscando o capacete pelo id
-        Capacete capacete = capaceteRepository.findById(dto.idCapacete());
-        edicaoJugular.setCapacete(capacete);
+        /*Capacete capacete = capaceteRepository.findById(dto.idCapacete());
+        edicaoJugular.setCapacete(capacete);*/
     }
 
     @Override
@@ -59,11 +57,11 @@ public class JugularServiceImpl implements JugularService {
         return JugularResponseDTO.valueOf(jugularRepository.findById(id));
     }
 
-    @Override
+    /*@Override
     public List<JugularResponseDTO> findByCapacete(Long idCapacete) {
         return jugularRepository.findByCapacete(idCapacete)
         .stream().map(m -> JugularResponseDTO.valueOf(m)).toList();
-    }
+    }*/
 
     @Override
     public List<JugularResponseDTO> findByTipoFechamento(String tipoFechamento) {
@@ -75,5 +73,4 @@ public class JugularServiceImpl implements JugularService {
     public List<JugularResponseDTO> findAll() {
         return jugularRepository.findAll().stream().map(m-> JugularResponseDTO.valueOf(m)).toList();
     }
-    
 }

@@ -44,5 +44,4 @@ public class UsuarioMapper {
         return usuario;
     }
 
-    // opcional: método para converter Entidade → DTO
 }
