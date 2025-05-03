@@ -60,8 +60,8 @@ public class InformacaoServiceImpl implements InformacaoService {
     }
     
     @Override
-    public List<InformacaoResponseDTO> findByAnoLancamento(Integer anolancamento) {
-        return informacaoRepository.findByAnoLancamento(anolancamento).stream().map(informacao -> InformacaoResponseDTO.valueOf(informacao)).toList();
+    public List<InformacaoResponseDTO> findByAnoLancamento(Integer anoLancamento) {
+        return informacaoRepository.findByAnoLancamento(anoLancamento).stream().map(informacao -> InformacaoResponseDTO.valueOf(informacao)).toList();
     }
 
 

@@ -77,7 +77,7 @@ public class CertificacaoResourceTest {
                 .statusCode(204);
 
         CertificacaoResponseDTO response = certificacaoService.findById(id);
-        assertThat(response.nome(), is("Ecc 22.06 Alterado"));
+        assertThat(response.nome(), is("Ecc 22.06 alterado"));
         assertThat(response.pais(), is("Suiça"));
         assertThat(response.descricao(), is("Economic Commission for Europe - Europa. Alterado"));
         

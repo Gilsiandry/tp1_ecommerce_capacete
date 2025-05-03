@@ -35,7 +35,7 @@ public class CapaceteResourceTest {
         CapaceteDTO capacete = new CapaceteDTO(
             "Capacete Street Pro",
             "Bell",
-            "Articulado",
+            "Aberto",
             "Street Pro",
             "Preto Fosco",
             60,
@@ -52,10 +52,10 @@ public class CapaceteResourceTest {
                     "id", notNullValue(),
                     "nome", is("Capacete Street Pro"),
                     "marca", is("Bell"),
-                    "categoria", is ("Aberto"),
-                    "modelo", is ("z22"),
-                    "cor", is ("Preto Fosco"),
-                    "tamanho", is (62),
+                    "categoria", is("Aberto"),
+                    "modelo", is("Street Pro"),
+                    "cor", is("Preto Fosco"),
+                    "tamanho", is(60),
                     "preco", is(649.90)
                 );
     }

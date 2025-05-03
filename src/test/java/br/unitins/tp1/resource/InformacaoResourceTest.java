@@ -46,7 +46,7 @@ public class InformacaoResourceTest {
                 .body(
                     "id", notNullValue(),
                     "descricao", is("Capacete Pro Tork Alta performace"),
-                    "anolancamento", is(2025)
+                    "anoLancamento", is(2025)
                 );
     }
 

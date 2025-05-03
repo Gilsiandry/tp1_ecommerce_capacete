@@ -13,6 +13,6 @@ public interface InformacaoService {
     InformacaoResponseDTO findById(long id);
 
     List<InformacaoResponseDTO> findByDescricao(String descricao);
-    List<InformacaoResponseDTO> findByAnoLancamento(Integer anolancamento);
+    List<InformacaoResponseDTO> findByAnoLancamento(Integer anoLancamento);
     List<InformacaoResponseDTO> findAll();
 }

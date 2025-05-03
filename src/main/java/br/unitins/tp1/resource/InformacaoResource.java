@@ -37,9 +37,9 @@ public class InformacaoResource {
 
 
     @GET
-    @Path("/anolancamento/{anolancamento}")
-    public Response buscarPorAnoLancamento(Integer anolancamento) { 
-        return Response.ok().entity(service.findByAnoLancamento(anolancamento)).build();
+    @Path("/anoLancamento/{anoLancamento}")
+    public Response buscarPorAnoLancamento(Integer anoLancamento) { 
+        return Response.ok().entity(service.findByAnoLancamento(anoLancamento)).build();
     }
 
     
@@ -55,6 +55,12 @@ public class InformacaoResource {
         return Response.noContent().build();
     }
 
+    /*@DELETE
+    @Path("/{id}")
+    public Response delete(@PathParam("id") Long id) {
+        service.delete(id);
+        return Response.noContent().build();*/
+        
     @DELETE
     @Path("/{id}")
     @Transactional

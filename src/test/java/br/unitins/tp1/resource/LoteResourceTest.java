@@ -1,5 +1,7 @@
 package br.unitins.tp1.resource;
 
+import java.time.LocalDate;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -34,7 +36,7 @@ public class LoteResourceTest {
     void testIncluir() {
         LoteDTO lote = new LoteDTO(
             "c1011",
-            "2025-05-02"
+            LocalDate.parse("2025-05-02")
         );
 
         given()
@@ -54,14 +56,14 @@ public class LoteResourceTest {
     void testAlterar() {
         LoteDTO lote = new LoteDTO(
             "C1234",
-            "2025-05-01"
+            LocalDate.parse("2025-05-01")
         );
 
         id = loteService.create(lote).id();
 
         LoteDTO loteAlterado = new LoteDTO(
             "C1234 Alterado",
-            "2025-05-02"
+            LocalDate.parse("2025-05-02")
         );
 
         given()
@@ -73,7 +75,7 @@ public class LoteResourceTest {
 
         LoteResponseDTO response = loteService.findById(id);
         assertThat(response.codigo(), is("C1234 Alterado"));
-        assertThat(response.dataFabricacao(), is("2025-05-02"));
+        assertThat(response.dataFabricacao(), is(LocalDate.parse("2025-05-02")));
     }
 
     @Test

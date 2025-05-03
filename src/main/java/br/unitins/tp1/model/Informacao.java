@@ -11,7 +11,7 @@ public class Informacao extends DefaultEntity {
     private String descricao;
 
     @Column(length = 30, nullable = false)
-    private Integer anolancamento;
+    private Integer anoLancamento;
 
     
 
@@ -24,10 +24,10 @@ public class Informacao extends DefaultEntity {
     }
 
       public Integer getAnoLancamento() {
-        return anolancamento;
+        return anoLancamento;
     }
 
-    public void setAnoLancamento(Integer anolancamento) {
-        this.anolancamento = anolancamento;
+    public void setAnoLancamento(Integer anoLancamento) {
+        this.anoLancamento = anoLancamento;
     }
 }
