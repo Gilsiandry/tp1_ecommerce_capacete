@@ -62,3 +62,25 @@ insert into pessoafisica (id, cpf) values (1, '11111111111');
 insert into pessoafisica (id, cpf) values (2, '22222222222');
 insert into pessoajuridica (id, cnpj) values (1, '33333333333');
 insert into pessoajuridica (id, cnpj) values (2, '44444444444');
+
+
+
+
+insert into pessoa (nome) values ('Gilsiandry Carvalho');
+insert into pessoa (nome) values ('Felipe Augusto');
+
+insert into pessoafisica (id, cpf) values (1, '11111111111');
+insert into pessoafisica (id, cpf) values (2, '22222222222');
+
+insert into usuario(username, senha, perfil, id_pessoafisica) 
+    values (
+        'gilsiandry', 
+        'SiM9w9cv/QHp+fZSykTmN52bUoj++hlYrZoet0hxU8eajwrdo6L5hmWoOm96rYeFQ1YyMKBKLuRE05aC5FKL/Q==',
+        1,
+        1);
+insert into usuario(username, senha, perfil, id_pessoafisica) 
+    values (
+        'felipe', 
+        'SiM9w9cv/QHp+fZSykTmN52bUoj++hlYrZoet0hxU8eajwrdo6L5hmWoOm96rYeFQ1YyMKBKLuRE05aC5FKL/Q==',
+        2,
+        2);

@@ -1,49 +1,53 @@
 package br.unitins.tp1.model;
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
 @Entity
 public class Usuario extends DefaultEntity {
-        @Column(unique = true)
-        private String email;
-        private String senha;
 
-        @Enumerated(EnumType.STRING)
-        private Perfil perfil;
+    @Column(length = 30, unique = true)
+    private String username;
+    @Column(length = 88)
+    private String senha;
 
-        @OneToOne(cascade = CascadeType.ALL)
-        private Pessoa pessoa;
+    private Perfil perfil;
 
-        
-        public String getEmail() {
-            return email;
-        }
-        public void setEmail(String email) {
-            this.email = email;
-        }
+    @OneToOne
+    @JoinColumn(name = "id_pessoafisica", unique = true)
+    private PessoaFisica pessoaFisica;
 
-        public String getSenha() {
-            return senha;
-        }
-        public void setSenha(String senha) {
-            this.senha = senha;
-        }
+    public String getUsername() {
+        return username;
+    }
 
-         public Perfil getPerfil() {
-            return perfil;
-        }
-        public void setPerfil(Perfil perfil) {
-            this.perfil = perfil;
-        }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-         public Pessoa getPessoa() {
-            return pessoa;
-        }
-        public void setPessoa(Pessoa Pessoa) {
-            this.pessoa = Pessoa;
-        }
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
+    public PessoaFisica getPessoaFisica() {
+        return pessoaFisica;
+    }
+
+    public void setPessoaFisica(PessoaFisica pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
+    }
 }
