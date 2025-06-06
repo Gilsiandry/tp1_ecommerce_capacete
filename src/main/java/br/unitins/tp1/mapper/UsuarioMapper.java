@@ -1,5 +1,5 @@
 // Arquivo: UsuarioMapper.java
-package br.unitins.tp1.mapper;
+/*package br.unitins.tp1.mapper;
 
 import br.unitins.tp1.dto.PessoaFisicaDTO;
 import br.unitins.tp1.dto.PessoaJuridicaDTO;
@@ -13,7 +13,7 @@ public class UsuarioMapper {
 
     public static Usuario toEntity(UsuarioDTO dto) {
         Usuario usuario = new Usuario();
-        usuario.setEmail(dto.email());
+        usuario.setUsername(dto.username());
         usuario.setSenha(dto.senha());
 
         Pessoa pessoa;
@@ -39,9 +39,10 @@ public class UsuarioMapper {
             throw new IllegalArgumentException("Tipo de pessoa inválido");
         }
 
-        usuario.setPessoa(pessoa);
+        usuario.setPessoaFisica((PessoaFisica)pessoa);
 
         return usuario;
     }
 
 }
+*/

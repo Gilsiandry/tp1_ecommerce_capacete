@@ -69,7 +69,7 @@ public class PedidoServiceImpl implements PedidoService {
             listaItem.add(item);
 
             // alterando o estoque 
-            capacete.setEstoque(capacete.getEstoque() - itemDTO.qtd());
+            //capacete.setEstoque(capacete.getEstoque() - itemDTO.qtd());
 
         }
 

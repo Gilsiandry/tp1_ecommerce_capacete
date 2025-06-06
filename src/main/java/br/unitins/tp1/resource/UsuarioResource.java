@@ -18,8 +18,10 @@ import jakarta.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsuarioResource {
 
-    @Inject
+   @Inject
     JsonWebToken jwt;
+
+    
 
     @Inject
     UsuarioService usuarioService;
