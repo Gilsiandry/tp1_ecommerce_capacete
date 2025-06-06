@@ -43,7 +43,7 @@ public class AuthResource {
         if (usuario == null) 
           return Response.noContent().build();
         
-        String token = jwtService.generateJwt(usuario.username(), usuario.perfil().getNome());
+        String token = jwtService.generateJwt(usuario.username(), usuario.perfil().getLabel());
         return Response.ok().header("Authorization", token).build();
             
     } 

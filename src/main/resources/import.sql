@@ -69,9 +69,6 @@ insert into pessoajuridica (id, cnpj) values (2, '44444444444');
 insert into pessoa (nome) values ('Gilsiandry Carvalho');
 insert into pessoa (nome) values ('Felipe Augusto');
 
-insert into pessoafisica (id, cpf) values (1, '11111111111');
-insert into pessoafisica (id, cpf) values (2, '22222222222');
-
 insert into usuario(username, senha, perfil, id_pessoafisica) 
     values (
         'gilsiandry', 
