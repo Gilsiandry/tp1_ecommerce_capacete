@@ -1,6 +1,6 @@
-package br.unitins.tp1.model;
+package br.unitins.tp1.roteadores.model.pedido;
 
-import jakarta.persistence.CascadeType;
+import br.unitins.tp1.roteadores.model.DefaultEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -8,16 +8,19 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class ItemPedido extends DefaultEntity {
 
+    @ManyToOne
+    @JoinColumn(name = "id_lote")
+    private Lote lote;
     private Integer quantidade;
     private Double preco;
 
-    @ManyToOne
-    @JoinColumn(name = "id_capacete")
-    private Capacete capacete;
+    public Lote getLote() {
+        return lote;
+    }
 
-    @ManyToOne
-    @JoinColumn(name = "id_pedido")
-    private Pedido pedido;
+    public void setLote(Lote lote) {
+        this.lote = lote;
+    }
 
     public Integer getQuantidade() {
         return quantidade;
@@ -33,22 +36,6 @@ public class ItemPedido extends DefaultEntity {
 
     public void setPreco(Double preco) {
         this.preco = preco;
-    }
-
-    public Capacete getCapacete() {
-        return capacete;
-    }
-
-    public void setCapacete(Capacete capacete) {
-        this.capacete = capacete;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
 }

@@ -1,6 +1,6 @@
 package br.unitins.tp1.model.converterjpa;
 
-import br.unitins.tp1.roteadores.model.pagamento.ModalidadeCartao;
+import br.unitins.tp1.model.pagamento.ModalidadeCartao;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 

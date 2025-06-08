@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
-public record LoteRequestDTO(
+public record EstoqueDTO(
     @NotNull(message = "O campo idCapacete deve ser informado.")
     Long idCapacete,
     @NotNull(message = "O campo data deve ser informado.")

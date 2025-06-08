@@ -1,7 +1,7 @@
 package br.unitins.tp1.resource;
 
 import br.unitins.tp1.dto.AcessorioDTO;
-import br.unitins.tp1.service.AcessorioService;
+import br.unitins.tp1.service.capacete.AcessorioService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

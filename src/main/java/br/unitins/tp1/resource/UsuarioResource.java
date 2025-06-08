@@ -3,7 +3,7 @@ package br.unitins.tp1.resource;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import br.unitins.tp1.dto.UsuarioResponseDTO;
-import br.unitins.tp1.service.UsuarioService;
+import br.unitins.tp1.service.usuario.UsuarioService;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;

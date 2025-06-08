@@ -1,9 +1,9 @@
-package br.unitins.tp1.ironforge.model.usuario;
+package br.unitins.tp1.model.usuario;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import br.unitins.tp1.ironforge.model.DefaultEntity;
+import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

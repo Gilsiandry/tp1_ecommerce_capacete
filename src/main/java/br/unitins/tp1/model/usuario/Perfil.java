@@ -1,4 +1,4 @@
-package br.unitins.tp1.model;
+package br.unitins.tp1.model.usuario;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)

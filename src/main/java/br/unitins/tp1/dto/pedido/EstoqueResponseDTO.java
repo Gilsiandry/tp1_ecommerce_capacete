@@ -2,9 +2,9 @@ package br.unitins.tp1.dto.pedido;
 
 import java.time.LocalDate;
 
-import br.unitins.tp1.model.pedido.Lote;
+import br.unitins.tp1.model.pedido.Estoque;
 
-public record LoteResponseDTO(
+public record EstoqueResponseDTO(
     Long id,
     String codigo,
     LocalDate data,
@@ -12,13 +12,13 @@ public record LoteResponseDTO(
     Long idCapacete
 ) {
 
-    public static LoteResponseDTO valueOf(Lote lote) {
-        return new LoteResponseDTO(
-            lote.getId(),
-            lote.getCodigo(),
-            lote.getData(),
-            lote.getEstoque(),
-            lote.getCapacete().getId()
+    public static EstoqueResponseDTO valueOf(Estoque estoque) {
+        return new EstoqueResponseDTO(
+            estoque.getId(),
+            estoque.getCodigo(),
+            estoque.getData(),
+            estoque.getEstoque(),
+            estoque.getCapacete().getId()
         );
 
     }

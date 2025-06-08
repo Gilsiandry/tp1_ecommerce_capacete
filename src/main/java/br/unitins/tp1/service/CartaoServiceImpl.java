@@ -5,9 +5,9 @@ import java.util.List;
 
 import br.unitins.tp1.dto.pagamento.CartaoDTO;
 import br.unitins.tp1.model.pagamento.Cartao;
-import br.unitins.tp1.model.cliente.Cliente;
+import br.unitins.tp1.model.usuario.Cliente;
 import br.unitins.tp1.repository.CartaoRepository;
-import br.unitins.tp1.service.cliente.ClienteService;
+import br.unitins.tp1.service.usuario.ClienteService;
 import br.unitins.tp1.validation.ValidationException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -47,7 +47,7 @@ public class CartaoServiceImpl implements CartaoService {
 
     @Override
     @Transactional
-    public Cartao create(String email, CartaoRequestDTO dto) {
+    public Cartao create(String email, CartaoDTO dto) {
         if (dto == null)
             throw new ValidationException("dto", "Informe os campos necessarios");
         
@@ -73,7 +73,7 @@ public class CartaoServiceImpl implements CartaoService {
 
     @Override
     @Transactional
-    public void update(String email, Long idCartao, CartaoRequestDTO dto) {
+    public void update(String email, Long idCartao, CartaoDTO dto) {
         if (dto == null)
             throw new ValidationException("dto", "Informe os campos necessarios");
         

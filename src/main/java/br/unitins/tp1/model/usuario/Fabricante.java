@@ -1,6 +1,6 @@
-package br.unitins.tp1.ironforge.model.usuario;
+package br.unitins.tp1.model.usuario;
 
-import br.unitins.tp1.ironforge.model.DefaultEntity;
+import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;

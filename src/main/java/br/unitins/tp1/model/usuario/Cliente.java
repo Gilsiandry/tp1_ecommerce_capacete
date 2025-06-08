@@ -1,10 +1,10 @@
-package br.unitins.tp1.ironforge.model.usuario;
+package br.unitins.tp1.model.usuario;
 
 import java.util.List;
 
-import br.unitins.tp1.ironforge.model.DefaultEntity;
-import br.unitins.tp1.ironforge.model.pagamento.Cartao;
-import br.unitins.tp1.ironforge.model.whey.WheyProtein;
+import br.unitins.tp1.model.DefaultEntity;
+import br.unitins.tp1.model.pagamento.Cartao;
+import br.unitins.tp1.model.Capacete;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,7 +23,7 @@ public class Cliente extends DefaultEntity {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "lista_desejo", joinColumns = @JoinColumn(name = "id_cliente"), inverseJoinColumns = @JoinColumn(name = "id_whey"))
-    private List<WheyProtein> listaDesejos;
+    private List<Capacete> listaDesejos;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_cliente")
@@ -37,11 +37,11 @@ public class Cliente extends DefaultEntity {
         this.pessoaFisica = pessoaFisica;
     }
 
-    public List<WheyProtein> getListaDesejos() {
+    public List<Capacete> getListaDesejos() {
         return listaDesejos;
     }
 
-    public void setListaDesejos(List<WheyProtein> listaDesejos) {
+    public void setListaDesejos(List<Capacete> listaDesejos) {
         this.listaDesejos = listaDesejos;
     }
 

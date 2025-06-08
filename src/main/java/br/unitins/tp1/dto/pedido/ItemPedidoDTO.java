@@ -1,4 +1,4 @@
-package br.unitins.tp1.dto;
+package br.unitins.tp1.dto.pedido;
 
 public record ItemPedidoDTO(
     Long idProduto,

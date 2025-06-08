@@ -13,7 +13,6 @@ public class Cartao extends DefaultEntity {
     private LocalDate dataValidade;
     private String cvc;
 
-    private ModalidadeCartao modalidadeCartao;
 
     public String getTitular() {
         return titular;

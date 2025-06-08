@@ -1,4 +1,4 @@
-package br.unitins.tp1.model;
+package br.unitins.tp1.model.usuario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;

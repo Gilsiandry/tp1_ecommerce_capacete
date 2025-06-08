@@ -4,7 +4,7 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import br.unitins.tp1.dto.PedidoDTO;
 import br.unitins.tp1.dto.PedidoResponseDTO;
-import br.unitins.tp1.service.PedidoService;
+import br.unitins.tp1.service.pedido.PedidoService;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;

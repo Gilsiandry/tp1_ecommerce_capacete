@@ -1,4 +1,4 @@
-package br.unitins.tp1.roteadores.validation;
+package br.unitins.tp1.validation;
 
 import java.util.ArrayList;
 import java.util.List;

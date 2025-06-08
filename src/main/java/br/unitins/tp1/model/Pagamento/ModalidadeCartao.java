@@ -5,7 +5,7 @@ import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Cartao extends DefaultEntity {
+public class ModalidadeCartao extends DefaultEntity {
 
     private String titular;
     private String cpfCartao;

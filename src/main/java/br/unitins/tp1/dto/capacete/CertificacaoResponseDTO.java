@@ -1,4 +1,4 @@
-package br.unitins.tp1.dto;
+package br.unitins.tp1.dto.capacete;
 
 import br.unitins.tp1.model.Certificacao;
 
