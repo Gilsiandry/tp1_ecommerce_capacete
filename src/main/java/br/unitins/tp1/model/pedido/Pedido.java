@@ -1,11 +1,11 @@
-package br.unitins.tp1.roteadores.model.pedido;
+package br.unitins.tp1.model.pedido;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import br.unitins.tp1.roteadores.model.DefaultEntity;
-import br.unitins.tp1.roteadores.model.pagamento.Pagamento;
-import br.unitins.tp1.roteadores.model.usuario.Cliente;
+import br.unitins.tp1.model.DefaultEntity;
+import br.unitins.tp1.model.pagamento.Pagamento;
+import br.unitins.tp1.model.usuario.Cliente;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
