@@ -1,7 +1,8 @@
 package br.unitins.tp1.dto.usuario;
 
-import br.unitins.tp1.model.Perfil;
-import br.unitins.tp1.model.Usuario;
+
+
+import br.unitins.tp1.model.usuario.Usuario;
 
 public record UsuarioResponseDTO(
     Long id,

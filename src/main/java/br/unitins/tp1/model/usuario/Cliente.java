@@ -3,8 +3,8 @@ package br.unitins.tp1.model.usuario;
 import java.util.List;
 
 import br.unitins.tp1.model.DefaultEntity;
+import br.unitins.tp1.model.capacete.Capacete;
 import br.unitins.tp1.model.pagamento.Cartao;
-import br.unitins.tp1.model.Capacete;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

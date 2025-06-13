@@ -117,6 +117,5 @@ public class ClienteResource {
         LOG.info("Execucao do metodo delete. Id do cliente: " + id);
         clienteService.delete(id);
         return Response.noContent().build();
-    }
-    
+    }   
 }

@@ -81,3 +81,46 @@ insert into usuario(username, senha, perfil, id_pessoafisica)
         'SiM9w9cv/QHp+fZSykTmN52bUoj++hlYrZoet0hxU8eajwrdo6L5hmWoOm96rYeFQ1YyMKBKLuRE05aC5FKL/Q==',
         2,
         2);
+
+
+
+insert into estado (nome, sigla) values('Tocantins', 'TO');
+insert into estado (nome, sigla) values('Goiás', 'GO');
+
+insert into cidade (nome, id_estado) values('Palmas', 1);
+insert into cidade (nome, id_estado) values('Campinas', 2);
+
+
+insert into estoque (codigo, estoque, data, id_capacete) values ('111', 8, '2025-06-09', 1);
+insert into estoque (codigo, estoque, data, id_capacete) values ('222', 10, '2025-01-13', 2);
+
+
+insert into endereco(logradouro, bairro, numero, cep, complemento, id_cidade) values ('Av. Teotônio Segurado', 'Plano Diretor Sul', '01', '77000000', 'Loja do Borracheiro', 1);
+insert into endereco(logradouro, bairro, numero, cep, complemento, id_cidade) values ('Av Ilustrativa', 'Plano Diretor Norte', '02', '77001111', 'Marquinhos Moto', 1);
+
+
+
+-- inserindo usuario com permissao de user e de adm
+insert into usuario(nome, cpf, dataNascimento, email, senha) values ('admin','12345678900','1995-03-18', 'admin@email.com', '0cctg7WgpEz7kC/AzVC+KX+bZLPXDtgJDqWWZWnmzHH+7Na2YVxYYSFPxcf7ImAjqfNckx0aT4n5qKM7WEoeEQ==');
+insert into perfil_usuario(perfis, id_usuario) values (1, 1);
+insert into perfil_usuario(perfis, id_usuario) values (2, 1);
+insert into funcionario(id_usuario, altura) values (1, 1.78);
+insert into cliente(id_usuario, datacadastro) values (1, '2024-01-16');
+insert into telefone(codigoarea, numero) values ('63', '32155065');
+insert into telefone(codigoarea, numero) values ('63', '32127070');
+insert into telefone_usuario(id_usuario, telefones_id) values (1, 1);
+insert into telefone_usuario(id_usuario, telefones_id) values (2, 2);
+insert into endereco(logradouro, bairro, numero, cep, complemento, id_cidade) values ('104 Sul, Alameda 10', 'Plano Diretor Sul', '01', '77000111', 'S/C', 1);
+insert into endereco_usuario(id_usuario, enderecos_id) values (1, 1);
+insert into cartao(titular, numero, cvc, cpfcartao, id_cliente, modalidadecartao, datavalidade) values ('Fulano da Silva', '111 2222 3333 4444', '354', '12345678900', 1, 1, '2029-02-01');
+
+
+-- inserindo usuario com permissao apenas de user
+insert into usuario(nome, cpf, dataNascimento, email, senha) values ('cliente','34567891000','2005-06-28', 'cliente@email.com', '0cctg7WgpEz7kC/AzVC+KX+bZLPXDtgJDqWWZWnmzHH+7Na2YVxYYSFPxcf7ImAjqfNckx0aT4n5qKM7WEoeEQ==');
+insert into perfil_usuario(perfis, id_usuario) values (2, 2);
+insert into cliente(id_usuario, datacadastro) values (2, '2025-10-19');
+
+-- inserindo usuario com permissao apenas de adm
+insert into usuario(nome, cpf, dataNascimento, email, senha) values ('gerente','11223344556','1985-02-25', 'gerente@email.com', '0cctg7WgpEz7kC/AzVC+KX+bZLPXDtgJDqWWZWnmzHH+7Na2YVxYYSFPxcf7ImAjqfNckx0aT4n5qKM7WEoeEQ==');
+insert into perfil_usuario(perfis, id_usuario) values (1, 3);
+insert into funcionario(id_usuario, altura) values (3, 1.75);

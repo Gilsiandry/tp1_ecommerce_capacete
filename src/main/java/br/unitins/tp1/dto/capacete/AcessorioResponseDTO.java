@@ -1,6 +1,7 @@
 package br.unitins.tp1.dto.capacete;
 
-import br.unitins.tp1.model.Acessorio;
+import br.unitins.tp1.model.acessorio.capacete;
+import br.unitins.tp1.model.capacete.Acessorio;
 
 
 public record AcessorioResponseDTO(

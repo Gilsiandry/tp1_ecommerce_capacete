@@ -2,6 +2,7 @@ package br.unitins.tp1.model.capacete;
 
 import java.util.List;
 
+import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
