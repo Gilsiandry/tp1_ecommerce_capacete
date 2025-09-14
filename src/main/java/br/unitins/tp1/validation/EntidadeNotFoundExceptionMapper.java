@@ -7,7 +7,7 @@ import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
 public class EntidadeNotFoundExceptionMapper {
-     @Override
+    
     public Response toResponse(EntidadeNotFoundException exception) {
         ValidationError error = new ValidationError("404", "Entidade não encontrada");
         error.addFieldError(exception.getFieldName(), exception.getMessage());

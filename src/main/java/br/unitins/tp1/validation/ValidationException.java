@@ -4,7 +4,7 @@ public class ValidationException {
      private String fieldName;
 
     public ValidationException(String fieldName, String message) {
-        super(message);
+        
         this.fieldName = fieldName;
     }
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ValidationError {
     public ValidationError(String code, String message) {
-        super(code, message);
+        
     }
 
     private record FieldError(String fieldName, String message) {
