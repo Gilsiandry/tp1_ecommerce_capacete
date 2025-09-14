@@ -1,0 +1,229 @@
+@startuml
+
+class Capacete {
+    nome: String
+    cor: String
+    tamanho: Interger
+    preco: Double
+
+}
+
+class Marca {
+    nome: String
+    modelo: String
+}
+
+enum Categoria {
+    fechado: int
+    aberto: int
+    articulado: int
+    
+}
+
+
+class Viseira {
+    marca: String
+    cor: String
+    tipo: String
+    
+}
+
+enum Jugular {
+    engateRapido: int
+    duploD: int
+}
+
+' class Certificacao {
+'     nome: String
+'     pais: String
+'     descricao: String
+' }
+
+
+class Lote{
+    codigo: String 
+    quantidade: Integer
+    dataFabricacao: LocalDate
+}
+
+abstract class Pessoa {
+    nome: String
+    email: String
+}
+
+class PessoaFisica{
+    cpf: String
+}
+
+class PessoaJuridica{
+    cnpj: String
+}
+
+class Usuario {
+    username: String
+    senha: String
+    email: String
+    dataCadastro: LocalDate
+}
+
+
+class Administrador {
+    matricula: int
+}
+
+class Funcionario{
+    salario: BigDecimal
+    dataContratacao: LocalDate
+    cargo: String
+}
+
+class Cliente {
+    cpf_cnpj: String
+    telefone: String
+}
+
+class Telefone {
+    codigoArea: String
+    numero: String
+}
+
+class Endereco {
+    logradouro: String
+    bairro: String
+    numero: String
+    complemento: String
+    cep: String
+}
+
+class EnderecoEntrega {
+    logradouro: String
+    numero: int
+    bairro: String
+    cidade: String
+    estado: String
+    cep: String
+}
+
+class Cidade {
+    nome: String
+}
+
+class Estado {
+    nome: String
+    sigla: String
+}
+
+class Pedido {
+    data: LocalDateTime
+    valorTotal: Double
+}
+
+class ItemPedido {
+    quantidade: Integer
+    preco: Double
+}
+
+class StatusPedido {
+    dataAtualizacao: LocalDateTime
+}
+
+enum SituacaoPedido {
+    aguardandoPagamento: int
+    pagamentoConfirmado: int
+    cancelado: int
+    enviado: int
+    entregue: int
+    devolvido: int
+}
+
+
+abstract class Pagamento {
+    valor: Double
+    dataPagamento: LocalDateTime
+    dataVencimento: LocalDateTime
+}
+
+enum TipoPagamento{
+    pix: int
+    boleto : int
+    cartao : int
+}
+
+
+class Pix {
+    chave: String
+}
+
+class Boleto {
+    codigoBarras: String
+}
+
+class Cartao{
+    nomeTitular: String
+    numero: String
+    codigoSeguranca: String
+    validade: LocalDate
+}
+
+class CartaoPagamento {
+    nomeTitular: String
+    numero: String
+    codigoSeguranca: String
+    validade: LocalDate
+}
+
+enum TipoCartao {
+    debito: int
+    credito: int
+}
+
+'relacionamento'
+
+
+Capacete "*" --> "1" Marca
+Capacete "*" --> "1" Categoria
+Capacete "*" --> "1" Jugular
+Capacete "*" --> "1" Viseira
+
+ItemPedido "*" --> "1" Capacete
+Lote "*" --> "1" Capacete
+
+Pedido "*" --> "1" Cliente
+Pedido "1" --> "*" ItemPedido
+Pedido "*" --> "1" EnderecoEntrega
+Pedido "1" --> "*" StatusPedido
+Pedido "1" *--> "1" Pagamento
+StatusPedido "*" --> "1" SituacaoPedido
+
+
+
+Pagamento "*" --> "1" TipoPagamento
+CartaoPagamento "*" -up-> "1" TipoCartao
+Cartao "*" --> "1" TipoCartao
+Pix --|> Pagamento
+Boleto --|> Pagamento
+CartaoPagamento --|> Pagamento
+Cliente --> Cartao :listaCartoes
+
+
+Usuario "1" --> "1" Pessoa
+Usuario "1" --> "1" Cliente
+Usuario "1" --> "1" Administrador
+
+Pessoa "1" --> "1" Usuario
+Pessoa "1" *--> "*" Telefone
+Pessoa "*" *--> "*" Endereco
+PessoaFisica --|> Pessoa
+PessoaJuridica --|> Pessoa
+Cliente -right-> PessoaFisica
+Funcionario --> PessoaFisica
+Cliente "1" --> "*" EnderecoEntrega
+Cliente "*" --> "*" Capacete : listaDesejos
+
+Cidade "*" *--> "1" Estado
+Endereco "*" --> "1" Cidade
+EnderecoEntrega "*" --> "1" Cidade
+
+
+
+@enduml
