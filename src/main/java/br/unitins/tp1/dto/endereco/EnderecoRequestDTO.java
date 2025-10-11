@@ -4,12 +4,21 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record EnderecoRequestDTO(
+    @NotBlank(message = "Logradouro obrigatório.")
+    String logradouro,
 
-                @NotNull(message = "O campo cidade deve ser informado") Long idCidade,
-                @NotBlank(message = "O campo logradouro deve ser informado") String logradouro,
-                @NotBlank(message = "O campo bairro deve ser informado") String bairro,
-                @NotBlank(message = "O campo numero deve ser informado") String numero,
-                @NotBlank(message = "O complemento deve ser informado") String complemento,
-                @NotBlank(message = "O campo CEP deve ser informado") String cep) {
+    @NotBlank(message = "Bairro obrigatório.")
+    String bairro,
 
+    @NotBlank(message = "Número obrigatório.")
+    String numero,
+
+    String complemento,
+
+    @NotBlank(message = "CEP obrigatório.")
+    String cep,
+
+    @NotNull(message = "Cidade obrigatória.")
+    Long idCidade){
+    
 }

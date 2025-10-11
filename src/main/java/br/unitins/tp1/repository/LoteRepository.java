@@ -40,5 +40,10 @@ public class LoteRepository implements PanacheRepository<Lote> {
     }
     
 
+//outra forma
+    public Lote findByCodigo(String codigo) {
+        return find("codigo", codigo).firstResult();
+    }
+
 }
     

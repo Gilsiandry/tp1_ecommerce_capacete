@@ -4,7 +4,7 @@ import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Marca extends DefaultEntity {
+public class Modelo extends DefaultEntity {
 
     private String nome;
 

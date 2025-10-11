@@ -8,7 +8,11 @@ import br.unitins.tp1.validation.EntidadeNotFoundException;
 @JsonFormat(shape = Shape.OBJECT)
 public enum Perfil {
 
-    USUARIO(1, "Usuario"), FUNCIONARIO(1, "Funcionario"), CLIENTE(2, "Cliente"), ADMINISTRADOR(4, "Administrador");
+    USUARIO(1, "Usuario"),
+    FUNCIONARIO(1, "Funcionario"),
+    CLIENTE(2, "Cliente"),
+    ADMINISTRADOR(4, "Administrador"),
+    FABRICANTE (5, "Fabricante");
 
     private final Integer id;
     private final String label;
@@ -32,7 +36,7 @@ public enum Perfil {
                 return tipo;
         }
 
-        throw new EntidadeNotFoundException("perfil", "Tipo de perfil não encontrado!");
+        //throw new EntidadeNotFoundException("perfil", "Tipo de perfil não encontrado!");
     }
 
 }

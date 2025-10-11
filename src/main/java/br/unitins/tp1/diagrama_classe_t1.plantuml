@@ -2,37 +2,70 @@
 
 class Capacete {
     nome: String
-    cor: String
-    tamanho: Interger
     preco: Double
+}
 
+
+class Fabricante{
+    nome: String
+    cnpj: String 
 }
 
 class Marca {
-    nome: String
-    modelo: String
+    nome: String  
 }
 
 enum Categoria {
-    fechado: int
-    aberto: int
-    articulado: int
-    
+    FECHADO: int
+    ABERTO: int
+    ARTICULADO: int  
+}
+
+class Modelo {
+    nome: String
+}
+
+enum Cor{
+    PRETO: int
+    VERMELHO: int
+    AZUl: int
+    BRANCO: int
+    VERDE: int
+    AMARELO: int
+    ROSA: int
+    ROXO: int
+    LARANJA: int
+    MARROM: int
+    CINZA: int 
+}
+
+enum CorViseira{
+    FUME: int
+    CRISTAL: int
+    IRIDIUM: int
+    CAMALEAO: int
+    CROMADA: int
+    DOURADA: int
+ }
+
+enum Tamanho{
+    56: int
+    58: int
+    60: int
+    62: int   
 }
 
 
 class Viseira {
     marca: String
     cor: String
-    tipo: String
-    
+    tipo: String 
 }
 
 enum Jugular {
-    engateRapido: int
-    duploD: int
+    ENGATERAPIDO: int
+    DUPLOD: int
 }
-
 
 
 class Lote{
@@ -109,12 +142,12 @@ class StatusPedido {
 }
 
 enum SituacaoPedido {
-    aguardandoPagamento: int
-    pagamentoConfirmado: int
-    cancelado: int
-    enviado: int
-    entregue: int
-    devolvido: int
+    AGUARDANDOPAGAMENTO: int
+    PAGAMENTCONFIRMADO: int
+    CANCELADO: int
+    ENVIADO: int
+    ENTREGUE: int
+    DEVOLVIDO: int
 }
 
 
@@ -126,9 +159,9 @@ abstract class Pagamento {
 }
 
 enum TipoPagamento{
-    pix: int
-    boleto : int
-    cartao : int
+    PIX: int
+    BOLETO : int
+    CARTAO : int
 }
 
 
@@ -148,29 +181,39 @@ class Cartao {
 }
 
 class CartaoPagamento {
-    tipoCartao: TipoCartao
+    tipoCartaoPagamento: TipoCartaoPagamento
 }
 
 enum Perfil {
-    funcionario: int
-    administrador: int
+    USUARIO: int
+    FUNCIONARIO: int
+    CLIENTE: int
+    ADMINISTRADOR: int
+    FABRICANTE: int
 }
 
 enum TipoCartaoPagamento {
-    debito: int
-    credito: int
+    DEBITO: int
+    CREDITO: int
 }
+
 
 'relacionamento'
 
-
-Capacete "*" --> "1" Marca
 Capacete "*" --> "1" Categoria
+Capacete "*" --> "1" Modelo
 Capacete "*" --> "1" Jugular
 Capacete "*" --> "1" Viseira
+Capacete "*" --> "1" Cor
+Capacete "*" --> "1" Tamanho
+
+
+Modelo "*" --> "1" Marca
+Marca "*" --> "1" Fabricante
 
 ItemPedido "*" --> "1" Capacete
 Lote "1" --> "*" Capacete
+Capacete "*" --> "1" Lote
 
 Pedido "*" --> "1" Usuario
 Pedido "1" --> "*" ItemPedido
@@ -178,27 +221,28 @@ Pedido "1" --> "*" StatusPedido
 Pedido "1" --> "1" Pagamento
 StatusPedido "*" --> "1" SituacaoPedido
 
-CartaoPagamento "*" --> "1" Cartao
 
-Pagamento "*" --> "1" TipoPagamento
-CartaoPagamento "*" --> "1" TipoCartaoPagamento
 Pix --|> Pagamento
 Boleto --|> Pagamento
 CartaoPagamento --|> Pagamento
-Usuario "1"--> "*" Cartao :lista cartoes
-
-Usuario "1" <|-- "1" Pessoa
+CartaoPagamento "*" --> "1" Cartao
+CartaoPagamento "*" --> "1" TipoCartaoPagamento
+Usuario "1" --> "*" Cartao : lista cartões
 
 Pessoa "1" --> "*" Telefone
-Pessoa "*" --> "*" Endereco
+Pessoa "1" --> "*" Endereco
 PessoaFisica --|> Pessoa
 PessoaJuridica --|> Pessoa
 
-Usuario "*" --> "1" Funcionario
-Usuario "*" --> "*" Capacete : listaDesejos
-Usuario "1" --> "1" Perfil
+
+Fabricante "1" --> "1" PessoaJuridica
+
+
+Funcionario --|> Usuario
+Usuario --|> Pessoa
 Cidade "*" --> "1" Estado
 Endereco "*" --> "1" Cidade
-Pedido "*" --> "1" Endereco
+Viseira "*" --> "1" CorViseira
+Viseira "*" --> "1" Marca
 
 @enduml

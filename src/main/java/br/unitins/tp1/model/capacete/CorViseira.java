@@ -3,17 +3,20 @@ package br.unitins.tp1.model.capacete;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-
 @JsonFormat(shape = Shape.OBJECT)
-public enum Jugular {
+public enum CorViseira {
 
-        ENGATERAPIDO(1, "Engate Rápido"),
-        DUPLOD(2, "Duplo D");
+        FUME(1, "Fumê"),
+        CRISTAL(2, "Cristal"),
+        IRIDIUM(3, "Iridium"),
+        CAMALEAO(4, "Camaleão"),
+        CROMADA(5, "Cromada"),
+        DOURADA(6, "Dourada");
 
     private final Integer id;
     private final String label;
 
-    private Jugular(Integer id, String label) {
+    private CorViseira(Integer id, String label) {
         this.id = id;
         this.label = label;
     }
@@ -26,13 +29,13 @@ public enum Jugular {
         return label;
     }
 
-    public static Jugular fromId(Integer id) {
+    public static CorViseira fromId(Integer id) {
         if (id == null)
             throw new IllegalArgumentException("Id não pode ser nulo.");
-        for (Jugular tipo : values()) {
+        for (CorViseira tipo : values()) {
             if (tipo.getId().equals(id))
                 return tipo;
         }
-        throw new IllegalArgumentException("Nenhuma jugular encontrada para id: " + id);
+        throw new IllegalArgumentException("Nenhuma cor de viseira encontrada para id: " + id);
     }
 }

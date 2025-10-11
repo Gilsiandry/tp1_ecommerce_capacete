@@ -2,98 +2,85 @@ package br.unitins.tp1.resource.endereco;
 
 import java.util.List;
 
-import org.jboss.logging.Logger;
-
 import br.unitins.tp1.dto.endereco.EstadoRequestDTO;
-import br.unitins.tp1.dto.endereco.EstadoResponseDTO;
 import br.unitins.tp1.model.endereco.Estado;
 import br.unitins.tp1.service.endereco.EstadoService;
-import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.Response.Status;
 
-@Path("/estados")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
-public class EstadoResource {
-
-    private static final Logger LOG = Logger.getLogger(EstadoResource.class);
+    @Path("estados")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public class EstadoResource {
 
     @Inject
-    public EstadoService estadoService;
+    EstadoService service;
+
+    @GET
+    public List<Estado> buscarTodos(@QueryParam("page") @DefaultValue("0") int page,
+                                    @QueryParam("page_size") @DefaultValue("100") int pageSize) { 
+        return service.findAll(page, pageSize);
+    }
+
+    @GET
+    @Path("/nome/{nome}")
+    public List<Estado> buscarPorNome(@PathParam("id") String nome, @QueryParam("page") @DefaultValue("0") int page,
+                                    @QueryParam("page_size") @DefaultValue("100") int pageSize) { 
+        return service.findByNome(nome, page, pageSize);
+    }
 
     @GET
     @Path("/{id}")
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response findById(@PathParam("id") Long id) {
-        LOG.infof("Execução do método findById. ID do endereco: %d", id);
-        Estado endereco = estadoService.findById(id);
-        LOG.infof("Estado com ID %d encontrado.", id);
-        return Response.ok(EstadoResponseDTO.valueOf(endereco)).build();
+    public Estado buscarPorId(@PathParam("id") Long id) {
+        return service.findById(id);
     }
 
     @GET
-    @Path("/search/nome/{nome}")
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response findByNome(@PathParam("nome") String nome) {
-        LOG.infof("Execução do método findByNome. Nome do endereco: %s", nome);
-        List<Estado> estados = estadoService.findByNome(nome);
-
-        return Response.ok(estados.stream().map(EstadoResponseDTO::valueOf).toList()).build();
-    }
-
-    @GET
-    @Path("/search/sigla/{sigla}")
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response findBySigla(@PathParam("sigla") String sigla) {
-        LOG.infof("Execução do método findBySigla. Sigla do endereco: %s", sigla);
-        Estado endereco = estadoService.findBySigla(sigla);
-        return Response.ok(EstadoResponseDTO.valueOf(endereco)).build();
-    }
-
-    @GET
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response findAll() {
-        LOG.info("Execução do método findAll. Buscando todos os estados.");
-        List<Estado> estados = estadoService.findAll();
-
-        return Response.ok(estados.stream().map(EstadoResponseDTO::valueOf).toList()).build();
+    @Path("/sigla/{sigla}")
+    public Estado buscarPorSigla(@PathParam("sigla") String sigla) { 
+        return service.findBySigla(sigla);
     }
 
     @POST
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response create(@Valid EstadoRequestDTO estadoDTO) {
-        LOG.infof("Execução do método create. Dados do endereco: %s", estadoDTO);
-        Estado endereco = estadoService.create(estadoDTO);
-        return Response.status(Status.CREATED).entity(EstadoResponseDTO.valueOf(endereco)).build();
+    public Estado incluir(@Valid EstadoRequestDTO dto) {
+        return service.create(dto);
     }
 
     @PUT
     @Path("/{id}")
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response update(@PathParam("id") Long id, @Valid EstadoRequestDTO estadoDTO) {
-        LOG.infof("Execução do método update. Atualizando endereco com ID: %d. Dados: %s", id, estadoDTO);
-        estadoService.update(id, estadoDTO);
-        return Response.noContent().build();
+    public void alterar(@PathParam("id") Long id, EstadoRequestDTO estado) {
+        service.update(id, estado);
     }
 
     @DELETE
     @Path("/{id}")
-    @RolesAllowed({ "Administrador", "Funcionario" })
-    public Response delete(@PathParam("id") Long id) {
-        LOG.infof("Execução do método delete. Deletando endereco com ID: %d", id);
-        estadoService.delete(id);
-        return Response.noContent().build();
+    @Transactional
+    public void apagar(@PathParam("id") Long id) {
+        service.delete(id);
     }
+
+    @GET
+    @Path("/count")
+    public long total() {
+        return service.count();
+    }
+
+    @GET
+    @Path("/nome/{nome}/count")
+    public long totalPorNome(@PathParam("id") String nome) {
+        return service.count(nome);
+    }
+
 }

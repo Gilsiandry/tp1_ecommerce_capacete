@@ -4,9 +4,9 @@ import java.util.List;
 
 import br.unitins.tp1.dto.endereco.EstadoRequestDTO;
 import br.unitins.tp1.model.endereco.Estado;
-import br.unitins.tp1.repository.EstadoRepository;
-import br.unitins.tp1.validation.EntidadeNotFoundException;
-import br.unitins.tp1.validation.ValidationException;
+import br.unitins.tp1.model.endereco.Regiao;
+import br.unitins.tp1.repository.endereco.EstadoRepository;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -15,71 +15,82 @@ import jakarta.transaction.Transactional;
 public class EstadoServiceImpl implements EstadoService {
 
     @Inject
-    public EstadoRepository estadoRepository;
+    EstadoRepository estadoRepository;
 
     @Override
-    public Estado findById(Long id) {
-        Estado estado = estadoRepository.findById(id);
-        if (estado == null) {
-            throw new EntidadeNotFoundException("id", "Estado não encontrado");
-        }
-        return estado;
-    }
+    @Transactional
+    public Estado create(EstadoRequestDTO estado) {
+        Estado novoEstado = new Estado();
+        novoEstado.setNome(estado.getNome());
+        novoEstado.setSigla(estado.getSigla());
 
-    @Override
-    public List<Estado> findByNome(String nome) {
-        return estadoRepository.findByNome(nome);
+        // selecionar uma regiao
+        novoEstado.setRegiao(Regiao.valueOf(estado.getIdRegiao()));
+
+        // realizando inclusao
+        estadoRepository.persist(novoEstado);
+
+        return novoEstado;
     }
 
     @Override
     @Transactional
-    public Estado create(EstadoRequestDTO dto) {
+    public void update(long id, EstadoRequestDTO estado) {
+        Estado edicaoEstado = estadoRepository.findById(id);
 
-        verificarSigla(dto.sigla());
-        Estado estado = new Estado();
-        estado.setNome(dto.nome());
-        estado.setSigla(dto.sigla());
-        estadoRepository.persist(estado);
-        return estado;
-    }
+        edicaoEstado.setNome(estado.getNome());
+        edicaoEstado.setSigla(estado.getSigla());
 
-    private void verificarSigla(String sigla) {
-        if (!(estadoRepository.findBySigla(sigla) == null)) {
-            throw new ValidationException("sigla", "A sigla já foi utilizada por outro estado.");
-        }
+        // selecionar uma regiao
+        edicaoEstado.setRegiao(Regiao.valueOf(estado.getIdRegiao()));
     }
 
     @Override
     @Transactional
-    public Estado update(Long id, EstadoRequestDTO dto) {
-        Estado estado = estadoRepository.findById(id);
-        if (estado == null) {
-            throw new EntidadeNotFoundException("id", "Estado não encontrado");
-        }
-        verificarSigla(dto.sigla());
-        estado.setNome(dto.nome());
-        estado.setSigla(dto.sigla());
-        return estado;
+    public void delete(long id) {
+        estadoRepository.deleteById(id);
     }
 
     @Override
-    @Transactional
-    public void delete(Long id) {
-        Estado estado = estadoRepository.findById(id);
-        if (estado == null) {
-            throw new EntidadeNotFoundException("id", "Estado não encontrado");
-        }
-        estadoRepository.delete(estado);
-    }
-
-    @Override
-    public List<Estado> findAll() {
-        return estadoRepository.findAll().list();
+    public Estado findById(long id) {
+        return estadoRepository.findById(id);
     }
 
     @Override
     public Estado findBySigla(String sigla) {
         return estadoRepository.findBySigla(sigla);
+    }
+
+    @Override
+    public List<Estado> findAll(Integer page, Integer pageSize) {
+        PanacheQuery<Estado> query = null;
+        System.out.println(page);
+        System.out.println(pageSize);
+        if (page == null || pageSize == null)
+            query = estadoRepository.findAll();
+        else
+            query = estadoRepository.findAll().page(page, pageSize);
+
+        return query.list();
+    }
+
+    @Override
+    public List<Estado> findByNome(String nome, Integer page, Integer pageSize) {
+        return estadoRepository.findByNome(nome).page(page, pageSize).list();
+    }
+
+    public List<Estado> findByNome(String nome) {
+        return estadoRepository.findByNome(nome).list();
+    }
+
+    @Override
+    public long count() {
+        return estadoRepository.findAll().count();
+    }
+
+    @Override
+    public long count(String nome) {
+        return estadoRepository.findByNome(nome).count();
     }
 
 }

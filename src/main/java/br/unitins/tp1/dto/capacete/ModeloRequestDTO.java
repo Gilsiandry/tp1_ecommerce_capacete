@@ -3,11 +3,11 @@ package br.unitins.tp1.dto.capacete;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record MarcaRequestDTO(
+public record ModeloRequestDTO(
         @NotBlank(message = "O campo nome deve ser informado.")
         String nome,
 
-        @NotNull(message = "Fabricante obrigatório.")
-        Long idFabricante) {
+        @NotNull(message = "Marca obrigatória.")
+        Long idMarca) {
 
 }

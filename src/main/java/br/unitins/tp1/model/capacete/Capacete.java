@@ -15,26 +15,26 @@ import jakarta.persistence.ManyToOne;
 public class Capacete extends DefaultEntity {
 
     private String nome;
-    private String cor;
-    private Integer tamanho;
     private Double preco;
     
     private Categoria categoria;
     private Jugular jugular;
-
+    private Cor cor;
+    private Tamanho tamanho;
+    
     @ManyToOne
-    @JoinColumn(name = "id_marca")
-    private Marca marca;
+    @JoinColumn(name = "id_modelo")
+    private Modelo modelo;
 
     @ManyToOne
     @JoinColumn(name = "id_viseira")
     private Viseira viseira;
 
-
     @ElementCollection
-    @CollectionTable(name = "imagens_capacete", joinColumns = @JoinColumn(name = "id_capacete"))
+    @CollectionTable(name = "imagens_whey", joinColumns = @JoinColumn(name = "id_whey"))
     @Column(name = "imagem")
     private List<String> imagens;
+    
 
     public String getNome() {
         return nome;
@@ -44,21 +44,6 @@ public class Capacete extends DefaultEntity {
         this.nome = nome;
     }
 
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public Integer getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(Integer tamanho) {
-        this.tamanho = tamanho;
-    }
 
     public Double getPreco() {
         return preco;
@@ -102,7 +87,24 @@ public class Capacete extends DefaultEntity {
         this.jugular = jugular;
     }
 
-    
+    public Cor getCor() {
+        return cor;
+    }
+
+    public void setCor(Cor cor) {
+        this.cor = cor;
+    }
+
+
+    public Tamanho getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(Tamanho tamanho) {
+        this.tamanho = tamanho;
+    }
+
+
 
     public List<String> getImagens() {
         return imagens;

@@ -36,14 +36,13 @@ public class CapaceteRepository implements PanacheRepository<Capacete> {
         return find("marcaCapacete = ?1", marca).list();
     }
 
-    //Outra forma com Parameters With
-    public List<Capacete> findByMarca(String marca) {
-        String marcaFormat = marca.substring(0, 1).toUpperCase() + marca.substring(1).toLowerCase();
-        return find("marca.nome LIKE :marca", Parameters.with("marca", "%" + marcaFormat + "%")).list();
+    //Outra forma
+    public List<Capacete> findByModelo(Long idModelo) {
+        return list("modelo.id = ?1", idModelo);
     }
 
-    public List<Capacete> findMostRatedCapacete() {
-        return find("ORDER BY nota DESC").list();
+    public List<Capacete> findByCategoria(Integer idCategoria) {
+        return list("categoria.id = ?1", idCategoria);
     }
 
 }

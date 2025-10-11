@@ -1,10 +1,37 @@
 package br.unitins.tp1.dto.endereco;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
 
-public record EstadoRequestDTO(
-        @NotBlank(message = "Nome não pode ser vazio !") @Size(max = 60, message = "O nome deve possuir no máximo 60 caracteres") String nome,
-        @NotBlank(message = "Sigla não pode ser vazia !") @Size(min = 2, max = 2, message = "A sigla deve ter somente 2 caracteres") String sigla) {
+import jakarta.validation.constraints.NotNull;
 
+public final class EstadoRequestDTO {
+
+    @NotNull(message = "O nome deve ser informado (back).")
+    @Length(min = 2, max = 60, message = "O nome deve conter entre 2 e 60 caracteres.")
+    private final String nome;
+
+    @NotNull(message = "A sigla deve ser informada (back).")
+    @Length(min = 2, max = 2, message = "A sigla deve ter 2 caracteres.")
+    private final String sigla;
+
+    private final Long idRegiao;
+
+    public EstadoDTO(String nome, String sigla, Long idRegiao) {
+        this.nome = nome;
+        this.sigla = sigla;
+        this.idRegiao = idRegiao;
+    }
+
+    public Long getIdRegiao() {
+        return idRegiao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+    
 }
