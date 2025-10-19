@@ -1,5 +1,6 @@
 package br.unitins.tp1.model.endereco;
 
+import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

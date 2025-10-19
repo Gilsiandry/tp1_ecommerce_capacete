@@ -1,31 +1,31 @@
-package br.unitins.tp1.model.usuario;
+// package br.unitins.tp1.model.usuario;
 
-import java.time.LocalDate;
+// import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
 
-@Entity
-public class PessoaFisica extends Pessoa {
+// @Entity
+// public class PessoaFisica extends Pessoa {
 
-    @Column(unique = true)
-    private String cpf;
-    private LocalDate dataNascimento;
+//     @Column(unique = true)
+//     private String cpf;
+//     private LocalDate dataNascimento;
 
-    public String getCpf() {
-        return cpf;
-    }
+//     public String getCpf() {
+//         return cpf;
+//     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+//     public void setCpf(String cpf) {
+//         this.cpf = cpf;
+//     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
+//     public LocalDate getDataNascimento() {
+//         return dataNascimento;
+//     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+//     public void setDataNascimento(LocalDate dataNascimento) {
+//         this.dataNascimento = dataNascimento;
+//     }
 
-}
+// }

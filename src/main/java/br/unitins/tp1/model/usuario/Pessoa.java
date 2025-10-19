@@ -1,88 +1,88 @@
-package br.unitins.tp1.model.usuario;
+// package br.unitins.tp1.model.usuario;
 
-import java.util.List;
+// import java.util.List;
 
-import br.unitins.tp1.model.DefaultEntity;
-import br.unitins.tp1.model.endereco.Endereco;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+// import br.unitins.tp1.model.DefaultEntity;
+// import br.unitins.tp1.model.endereco.Endereco;
+// import jakarta.persistence.CascadeType;
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.FetchType;
+// import jakarta.persistence.Inheritance;
+// import jakarta.persistence.InheritanceType;
+// import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.OneToMany;
+// import jakarta.persistence.OneToOne;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pessoa extends DefaultEntity {
+// @Entity
+// @Inheritance(strategy = InheritanceType.JOINED)
+// public abstract class Pessoa extends DefaultEntity {
 
-    @OneToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+//     @OneToOne
+//     @JoinColumn(name = "id_usuario")
+//     private Usuario usuario;
 
-    private String nome;
+//     private String nome;
 
-    @Column(unique = true)
-    private String email;
+//     @Column(unique = true)
+//     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_pessoa")
-    private List<Telefone> telefones;
+//     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+//     @JoinColumn(name = "id_pessoa")
+//     private List<Telefone> telefones;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_pessoa")
-    private List<Endereco> enderecos;
+//     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+//     @JoinColumn(name = "id_pessoa")
+//     private List<Endereco> enderecos;
 
-    private String fotoPerfil;
+//     private String fotoPerfil;
 
-    public String getNome() {
-        return nome;
-    }
+//     public String getNome() {
+//         return nome;
+//     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+//     public void setNome(String nome) {
+//         this.nome = nome;
+//     }
 
-    public String getEmail() {
-        return email;
-    }
+//     public String getEmail() {
+//         return email;
+//     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//     public void setEmail(String email) {
+//         this.email = email;
+//     }
 
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
+//     public List<Telefone> getTelefones() {
+//         return telefones;
+//     }
 
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
+//     public void setTelefones(List<Telefone> telefones) {
+//         this.telefones = telefones;
+//     }
 
-    public List<Endereco> getEnderecos() {
-        return enderecos;
-    }
+//     public List<Endereco> getEnderecos() {
+//         return enderecos;
+//     }
 
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
+//     public void setEnderecos(List<Endereco> enderecos) {
+//         this.enderecos = enderecos;
+//     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+//     public Usuario getUsuario() {
+//         return usuario;
+//     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
+//     public void setUsuario(Usuario usuario) {
+//         this.usuario = usuario;
+//     }
 
-    public String getFotoPerfil() {
-        return fotoPerfil;
-    }
+//     public String getFotoPerfil() {
+//         return fotoPerfil;
+//     }
 
-    public void setFotoPerfil(String fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
-    }
+//     public void setFotoPerfil(String fotoPerfil) {
+//         this.fotoPerfil = fotoPerfil;
+//     }
 
-}
+// }

@@ -3,7 +3,6 @@ package br.unitins.tp1.model.capacete;
 import java.util.List;
 
 import br.unitins.tp1.model.DefaultEntity;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -11,8 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Entity
-public class Capacete extends DefaultEntity {
+    @Entity
+    public class Capacete extends DefaultEntity {
 
     private String nome;
     private Double preco;
@@ -22,6 +21,8 @@ public class Capacete extends DefaultEntity {
     private Cor cor;
     private Tamanho tamanho;
     
+
+
     @ManyToOne
     @JoinColumn(name = "id_modelo")
     private Modelo modelo;
@@ -31,7 +32,7 @@ public class Capacete extends DefaultEntity {
     private Viseira viseira;
 
     @ElementCollection
-    @CollectionTable(name = "imagens_whey", joinColumns = @JoinColumn(name = "id_whey"))
+    @CollectionTable(name = "imagens_capacete", joinColumns = @JoinColumn(name = "id_capacete"))
     @Column(name = "imagem")
     private List<String> imagens;
     
@@ -55,13 +56,13 @@ public class Capacete extends DefaultEntity {
 
     
 
-    public Marca getMarca() {
-        return marca;
-    }
+    // public Marca getMarca() {
+    //     return marca;
+    // }
 
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
+    // public void setMarca(Marca marca) {
+    //     this.marca = marca;
+    // }
 
     public Viseira getViseira() {
         return viseira;

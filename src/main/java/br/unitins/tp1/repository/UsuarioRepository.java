@@ -1,32 +1,32 @@
-package br.unitins.tp1.repository;
+// package br.unitins.tp1.repository;
 
-import br.unitins.tp1.model.usuario.Usuario;
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
-import jakarta.enterprise.context.ApplicationScoped;
+// import br.unitins.tp1.model.usuario.Usuario;
+// import io.quarkus.hibernate.orm.panache.PanacheRepository;
+// import jakarta.enterprise.context.ApplicationScoped;
 
-@ApplicationScoped
-public class UsuarioRepository implements PanacheRepository<Usuario> {
+// @ApplicationScoped
+// public class UsuarioRepository implements PanacheRepository<Usuario> {
 
-    public Usuario findByUsernameAndSenha(String username, String senha) {
-        return find("username = ?1 AND senha = ?2", username, senha).firstResult();
-    }
+//     public Usuario findByUsernameAndSenha(String username, String senha) {
+//         return find("username = ?1 AND senha = ?2", username, senha).firstResult();
+//     }
 
-    public Usuario findByUsername(String username) {
-        return find("username = ?1", username).firstResult();
-    }
+//     public Usuario findByUsername(String username) {
+//         return find("username = ?1", username).firstResult();
+//     }
 
-    public Usuario findByEmail(String email) {
-        return find("email = ?1", email).firstResult();
-    }
+//     public Usuario findByEmail(String email) {
+//         return find("email = ?1", email).firstResult();
+//     }
 
-    // outra forma
+//     // outra forma
 
-    public Usuario findByUsername(String username) {
-        return find("LOWER(username) = ?1", username.toLowerCase()).firstResult();
-    }
+//     public Usuario findByUsername(String username) {
+//         return find("LOWER(username) = ?1", username.toLowerCase()).firstResult();
+//     }
 
-    public Usuario findByEmail(String email) {
-        return find("LOWER(email) = ?1", email.toLowerCase()).firstResult();
-    }
+//     public Usuario findByEmail(String email) {
+//         return find("LOWER(email) = ?1", email.toLowerCase()).firstResult();
+//     }
 
-}
+// }

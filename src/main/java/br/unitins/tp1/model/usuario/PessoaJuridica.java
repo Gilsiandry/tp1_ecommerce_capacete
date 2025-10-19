@@ -1,20 +1,20 @@
-package br.unitins.tp1.model.usuario;
+// package br.unitins.tp1.model.usuario;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
 
-@Entity
-public class PessoaJuridica extends Pessoa {
+// @Entity
+// public class PessoaJuridica extends Pessoa {
 
-    @Column(unique = true)
-    private String cnpj;
+//     @Column(unique = true)
+//     private String cnpj;
 
-    public String getCnpj() {
-        return cnpj;
-    }
+//     public String getCnpj() {
+//         return cnpj;
+//     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
+//     public void setCnpj(String cnpj) {
+//         this.cnpj = cnpj;
+//     }
 
-}
+// }

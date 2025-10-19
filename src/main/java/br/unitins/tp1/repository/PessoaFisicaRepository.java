@@ -1,11 +1,11 @@
-package br.unitins.tp1.repository;
+// package br.unitins.tp1.repository;
 
-import br.unitins.tp1.model.usuario.PessoaFisica;
-import io.quarkus.hibernate.orm.panache.PanacheRepository;
-import jakarta.enterprise.context.ApplicationScoped;
+// import br.unitins.tp1.model.usuario.PessoaFisica;
+// import io.quarkus.hibernate.orm.panache.PanacheRepository;
+// import jakarta.enterprise.context.ApplicationScoped;
 
-@ApplicationScoped
-public class PessoaFisicaRepository implements PanacheRepository<PessoaFisica> {
+// @ApplicationScoped
+// public class PessoaFisicaRepository implements PanacheRepository<PessoaFisica> {
 
 
-}
+// }

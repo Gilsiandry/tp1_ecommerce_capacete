@@ -1,10 +1,9 @@
 package br.unitins.tp1.repository;
 
-import java.util.List;
-
 import br.unitins.tp1.model.capacete.Modelo;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class ModeloRepository implements PanacheRepository<Modelo> {

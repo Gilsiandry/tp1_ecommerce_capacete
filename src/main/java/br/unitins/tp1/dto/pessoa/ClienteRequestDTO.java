@@ -1,20 +1,20 @@
-package br.unitins.tp1.dto.pessoa;
+// package br.unitins.tp1.dto.pessoa;
 
-import java.time.LocalDate;
-import java.util.List;
+// import java.time.LocalDate;
+// import java.util.List;
 
-import org.hibernate.validator.constraints.br.CPF;
+// import org.hibernate.validator.constraints.br.CPF;
 
-import br.unitins.tp1.dto.endereco.EnderecoRequestDTO;
-import br.unitins.tp1.dto.telefone.TelefoneRequestDTO;
-import jakarta.validation.constraints.NotBlank;
+// import br.unitins.tp1.dto.endereco.EnderecoRequestDTO;
+// import br.unitins.tp1.dto.telefone.TelefoneRequestDTO;
+// import jakarta.validation.constraints.NotBlank;
 
-public record ClienteRequestDTO(
+// public record ClienteRequestDTO(
 
-                @NotBlank(message = "O campo nome deve ser informado.") String nome,
-                @NotBlank(message = "O campo CPF deve ser informado.") @CPF(message = "O CPF informado está em formato inválido") String cpf,
-                LocalDate dataNascimento,
-                List<TelefoneRequestDTO> telefones,
-                List<EnderecoRequestDTO> enderecos) {
+//                 @NotBlank(message = "O campo nome deve ser informado.") String nome,
+//                 @NotBlank(message = "O campo CPF deve ser informado.") @CPF(message = "O CPF informado está em formato inválido") String cpf,
+//                 LocalDate dataNascimento,
+//                 List<TelefoneRequestDTO> telefones,
+//                 List<EnderecoRequestDTO> enderecos) {
 
-}
+// }

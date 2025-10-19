@@ -1,31 +1,31 @@
-package br.unitins.tp1.dto.pessoa;
+// package br.unitins.tp1.dto.pessoa;
 
-import java.time.LocalDate;
-import java.util.List;
+// import java.time.LocalDate;
+// import java.util.List;
 
-import br.unitins.tp1.dto.endereco.EnderecoResponseDTO;
-import br.unitins.tp1.dto.telefone.TelefoneResponseDTO;
-import br.unitins.tp1.dto.usuario.UsuarioResponseDTO;
-import br.unitins.tp1.model.usuario.Cliente;
+// import br.unitins.tp1.dto.endereco.EnderecoResponseDTO;
+// import br.unitins.tp1.dto.telefone.TelefoneResponseDTO;
+// import br.unitins.tp1.dto.usuario.UsuarioResponseDTO;
+// import br.unitins.tp1.model.usuario.Cliente;
 
-public record ClienteResponseDTO(
-        Long id,
-        String nome,
-        String cpf,
-        String email,
-        LocalDate dataNascimento,
-        List<TelefoneResponseDTO> telefones,
-        List<EnderecoResponseDTO> enderecos,
-        UsuarioResponseDTO usuario,
-        String fotoPerfil) {
-    public static ClienteResponseDTO valueOf(Cliente cliente) {
-        return new ClienteResponseDTO(cliente.getId(), cliente.getPessoaFisica().getNome(),
-                cliente.getPessoaFisica().getCpf(),
-                cliente.getPessoaFisica().getEmail(),
-                cliente.getPessoaFisica().getDataNascimento(),
-                cliente.getPessoaFisica().getTelefones().stream().map(TelefoneResponseDTO::valueOf).toList(),
-                cliente.getPessoaFisica().getEnderecos().stream().map(EnderecoResponseDTO::valueOf).toList(),
-                UsuarioResponseDTO.valueOf(cliente.getPessoaFisica().getUsuario()),
-                cliente.getPessoaFisica().getFotoPerfil());
-    }
-}
+// public record ClienteResponseDTO(
+//         Long id,
+//         String nome,
+//         String cpf,
+//         String email,
+//         LocalDate dataNascimento,
+//         List<TelefoneResponseDTO> telefones,
+//         List<EnderecoResponseDTO> enderecos,
+//         UsuarioResponseDTO usuario,
+//         String fotoPerfil) {
+//     public static ClienteResponseDTO valueOf(Cliente cliente) {
+//         return new ClienteResponseDTO(cliente.getId(), cliente.getPessoaFisica().getNome(),
+//                 cliente.getPessoaFisica().getCpf(),
+//                 cliente.getPessoaFisica().getEmail(),
+//                 cliente.getPessoaFisica().getDataNascimento(),
+//                 cliente.getPessoaFisica().getTelefones().stream().map(TelefoneResponseDTO::valueOf).toList(),
+//                 cliente.getPessoaFisica().getEnderecos().stream().map(EnderecoResponseDTO::valueOf).toList(),
+//                 UsuarioResponseDTO.valueOf(cliente.getPessoaFisica().getUsuario()),
+//                 cliente.getPessoaFisica().getFotoPerfil());
+//     }
+// }

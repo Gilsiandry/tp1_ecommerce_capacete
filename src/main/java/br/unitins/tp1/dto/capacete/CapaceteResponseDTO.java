@@ -7,16 +7,16 @@ import br.unitins.tp1.model.capacete.Categoria;
 import br.unitins.tp1.model.capacete.Cor;
 import br.unitins.tp1.model.capacete.Tamanho;
 
-public record CapaceteResponseDTO(
+    public record CapaceteResponseDTO(
     Long id,
     String nome,
     Double preco,
-    ModeloResponseDTO modelo;
-    ViseiraResponseDTO viseira;
-    Jugular jugular;
-    Categoria categoria;
-    Cor cor;
-    Tamanho tamanho;
+    ModeloResponseDTO modelo,
+    ViseiraResponseDTO viseira,
+    Jugular jugular,
+    Categoria categoria,
+    Cor cor,
+    Tamanho tamanho,
     List<String> imagens) {
 
 

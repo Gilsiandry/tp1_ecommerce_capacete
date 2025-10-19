@@ -10,8 +10,8 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
-@ApplicationScoped
-public class MarcaServiceImpl implements MarcaService {
+    @ApplicationScoped
+    public class MarcaServiceImpl implements MarcaService {
 
     @Inject
     public MarcaRepository saborRepository;
