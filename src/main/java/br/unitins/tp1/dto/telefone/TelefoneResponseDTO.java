@@ -3,12 +3,12 @@ package br.unitins.tp1.dto.telefone;
 import br.unitins.tp1.model.usuario.Telefone;
 
 public record TelefoneResponseDTO(
-        Long id,
         String codigoArea,
-        String numero) {
-
+        String numero) 
+{
     public static TelefoneResponseDTO valueOf(Telefone telefone) {
-        return new TelefoneResponseDTO(telefone.getId(), telefone.getCodigoArea(), telefone.getNumero());
+        return new TelefoneResponseDTO(
+                telefone.getCodigoArea(),
+                telefone.getNumero());
     }
-
 }

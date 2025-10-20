@@ -13,6 +13,12 @@ import jakarta.enterprise.context.ApplicationScoped;
         return find("SELECT e FROM Estado e WHERE e.sigla = ?1 ", sigla).firstResult();
     }
 
+    public Estado findBySiglaExceptId(String sigla, Long id) {
+        if (id == null)
+            return findBySigla(sigla);
+        return find("SELECT e FROM Estado e WHERE e.sigla = ?1 AND e.id <> ?2 ", sigla, id).firstResult();
+    }
+
     public PanacheQuery<Estado> findByNome(String nome) {
         return find("SELECT e FROM Estado e WHERE e.nome LIKE ?1 ", "%"+nome+"%");
     }

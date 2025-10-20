@@ -20,10 +20,10 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
-    @Path("estados")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public class EstadoResource {
+@Path("estados")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class EstadoResource {
 
     @Inject
     EstadoService service;
@@ -54,7 +54,7 @@ import jakarta.ws.rs.core.MediaType;
     }
 
     @POST
-    public Estado incluir(@Valid EstadoRequestDTO dto) {
+    public Estado incluir(EstadoRequestDTO dto) {
         return service.create(dto);
     }
 

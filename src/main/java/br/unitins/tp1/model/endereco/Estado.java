@@ -4,10 +4,11 @@ import br.unitins.tp1.model.DefaultEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
-@Entity
-public class Estado extends DefaultEntity {
 
-    @Column(length = 60, nullable = false)
+    @Entity
+    public class Estado extends DefaultEntity {
+
+   @Column(length = 60, nullable = false)
     private String nome;
 
     @Column(length = 2, nullable = false)

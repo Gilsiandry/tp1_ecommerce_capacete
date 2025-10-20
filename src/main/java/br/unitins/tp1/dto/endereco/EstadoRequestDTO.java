@@ -16,7 +16,7 @@ public final class EstadoRequestDTO {
 
     private final Long idRegiao;
 
-    public EstadoDTO(String nome, String sigla, Long idRegiao) {
+    public EstadoRequestDTO(String nome, String sigla, Long idRegiao) {
         this.nome = nome;
         this.sigla = sigla;
         this.idRegiao = idRegiao;
@@ -33,5 +33,4 @@ public final class EstadoRequestDTO {
     public String getSigla() {
         return sigla;
     }
-    
 }

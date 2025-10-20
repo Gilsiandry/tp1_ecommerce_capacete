@@ -31,4 +31,5 @@ public class Municipio extends DefaultEntity {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
 }

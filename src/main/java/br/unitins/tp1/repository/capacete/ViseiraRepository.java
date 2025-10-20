@@ -1,4 +1,4 @@
-package br.unitins.tp1.repository;
+package br.unitins.tp1.repository.capacete;
 
 import br.unitins.tp1.model.capacete.Viseira;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;

@@ -17,4 +17,5 @@ import jakarta.enterprise.context.ApplicationScoped;
     public PanacheQuery<Municipio> findAll2() {
         return find("SELECT c FROM Municipio c ORDER BY c.nome ");
     }
+
 }

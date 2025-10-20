@@ -1,6 +1,6 @@
 package br.unitins.tp1.model.converterjpa;
 
-import br.unitins.tp1.model.Regiao;
+import br.unitins.tp1.model.endereco.Regiao;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
@@ -17,4 +17,5 @@ public class RegiaoConverter implements AttributeConverter<Regiao, Long> {
     public Regiao convertToEntityAttribute(Long id) {
         return Regiao.valueOf(id);
     }
+    
 }

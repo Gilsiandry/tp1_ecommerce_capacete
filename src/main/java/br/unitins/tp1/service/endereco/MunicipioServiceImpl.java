@@ -39,18 +39,18 @@ public class MunicipioServiceImpl implements MunicipioService {
     public MunicipioResponseDTO findById(Long id) {
         Municipio municipio = municipioRepository.findById(id);
         if (municipio == null)
-            throw new NotFoundException("Municipio não encontrado.");
+            throw new NotFoundException("Municipio não encontrada.");
         return MunicipioResponseDTO.valueOf(municipio);
     }
 
     @Override
     @Transactional
-    public MunicipioResponseDTO create(MunicipioRequestDTO municipioRequestDTO) throws ConstraintViolationException {
-        validar(municipioRequestDTO);
+    public MunicipioResponseDTO create(MunicipioRequestDTO municipioDTO) throws ConstraintViolationException {
+        validar(municipioDTO);
 
         Municipio entity = new Municipio();
-        entity.setNome(municipioRequestDTO.nome());
-        entity.setEstado(estadoRepository.findById(municipioRequestDTO.idEstado()));
+        entity.setNome(municipioDTO.nome());
+        entity.setEstado(estadoRepository.findById(municipioDTO.idEstado()));
 
         municipioRepository.persist(entity);
 
@@ -59,19 +59,19 @@ public class MunicipioServiceImpl implements MunicipioService {
 
     @Override
     @Transactional
-    public MunicipioResponseDTO update(Long id, MunicipioRequestDTO municipioRequestDTO) throws ConstraintViolationException {
-        validar(municipioRequestDTO);
+    public MunicipioResponseDTO update(Long id, MunicipioRequestDTO municipioDTO) throws ConstraintViolationException {
+        validar(municipioDTO);
 
         Municipio entity = municipioRepository.findById(id);
 
-        entity.setNome(municipioRequestDTO.nome());
-        entity.setEstado(estadoRepository.findById(municipioRequestDTO.idEstado()));
+        entity.setNome(municipioDTO.nome());
+        entity.setEstado(estadoRepository.findById(municipioDTO.idEstado()));
 
         return MunicipioResponseDTO.valueOf(entity);
     }
 
-    private void validar(MunicipioRequestDTO municipioRequestDTO) throws ConstraintViolationException {
-        Set<ConstraintViolation<MunicipioRequestDTO>> violations = validator.validate(municipioRequestDTO);
+    private void validar(MunicipioRequestDTO municipioDTO) throws ConstraintViolationException {
+        Set<ConstraintViolation<MunicipioRequestDTO>> violations = validator.validate(municipioDTO);
         if (!violations.isEmpty())
             throw new ConstraintViolationException(violations);
 

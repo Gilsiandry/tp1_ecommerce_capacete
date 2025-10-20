@@ -7,7 +7,6 @@ import br.unitins.tp1.dto.endereco.MunicipioResponseDTO;
 import br.unitins.tp1.service.endereco.MunicipioService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.DefaultValue;
@@ -19,6 +18,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 
 @Path("/municipios")
 @Produces(MediaType.APPLICATION_JSON)
@@ -53,14 +54,14 @@ public class MunicipioResource {
     }
     
     @POST
-    public Response incluir(MunicipioDTO dto) {
+    public Response incluir(MunicipioRequestDTO dto) {
         MunicipioResponseDTO retorno = service.create(dto);
         return Response.status(201).entity(retorno).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response alterar(MunicipioDTO dto, @PathParam("id") Long id) {
+    public Response alterar(MunicipioRequestDTO dto, @PathParam("id") Long id) {
         service.update(id, dto);
         return Response.status(Status.NO_CONTENT).build();
     }

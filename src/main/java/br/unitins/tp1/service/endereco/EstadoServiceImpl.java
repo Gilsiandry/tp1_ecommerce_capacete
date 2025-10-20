@@ -3,6 +3,7 @@ package br.unitins.tp1.service.endereco;
 import java.util.List;
 
 import br.unitins.tp1.dto.endereco.EstadoRequestDTO;
+import br.unitins.tp1.exception.ValidationException;
 import br.unitins.tp1.model.endereco.Estado;
 import br.unitins.tp1.model.endereco.Regiao;
 import br.unitins.tp1.repository.endereco.EstadoRepository;
@@ -14,12 +15,13 @@ import jakarta.transaction.Transactional;
 @ApplicationScoped
 public class EstadoServiceImpl implements EstadoService {
 
-    @Inject
+     @Inject
     EstadoRepository estadoRepository;
 
     @Override
     @Transactional
     public Estado create(EstadoRequestDTO estado) {
+        validarDados(estado, null);
         Estado novoEstado = new Estado();
         novoEstado.setNome(estado.getNome());
         novoEstado.setSigla(estado.getSigla());
@@ -33,9 +35,16 @@ public class EstadoServiceImpl implements EstadoService {
         return novoEstado;
     }
 
+    private void validarDados(EstadoRequestDTO dto, Long id) {
+        Estado estado = estadoRepository.findBySiglaExceptId(dto.getSigla(), id);
+        if (estado != null)
+           throw ValidationException.of("sigla", "Já existe um estado cadastrado com essa sigla.");
+    }
+
     @Override
     @Transactional
     public void update(long id, EstadoRequestDTO estado) {
+        validarDados(estado, id);
         Estado edicaoEstado = estadoRepository.findById(id);
 
         edicaoEstado.setNome(estado.getNome());

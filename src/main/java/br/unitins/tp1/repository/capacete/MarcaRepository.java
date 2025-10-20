@@ -1,4 +1,4 @@
-package br.unitins.tp1.repository;
+package br.unitins.tp1.repository.capacete;
 
 import java.util.List;
 

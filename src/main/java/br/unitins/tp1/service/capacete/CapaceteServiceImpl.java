@@ -5,8 +5,8 @@ import java.util.List;
 
 import br.unitins.tp1.dto.capacete.CapaceteRequestDTO;
 import br.unitins.tp1.model.capacete.Marca;
+import br.unitins.tp1.repository.capacete.CapaceteRepository;
 import br.unitins.tp1.model.capacete.Capacete;
-import br.unitins.tp1.repository.CapaceteRepository;
 import br.unitins.tp1.service.capacete.MarcaService;
 import br.unitins.tp1.validation.EntidadeNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;

@@ -4,10 +4,11 @@ import java.util.List;
 
 import br.unitins.tp1.dto.endereco.EstadoRequestDTO;
 import br.unitins.tp1.model.endereco.Estado;
+import jakarta.validation.Valid;
 
 public interface EstadoService {
 
-    Estado create(EstadoRequestDTO estado);
+    Estado create(@Valid EstadoRequestDTO estado);
     void update(long id, EstadoRequestDTO estado);
     void delete(long id);
     Estado findById(long id);

@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.unitins.tp1.dto.capacete.MarcaRequestDTO;
 import br.unitins.tp1.model.capacete.Marca;
-import br.unitins.tp1.repository.MarcaRepository;
+import br.unitins.tp1.repository.capacete.MarcaRepository;
 import br.unitins.tp1.validation.EntidadeNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

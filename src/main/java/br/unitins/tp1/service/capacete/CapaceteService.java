@@ -10,9 +10,9 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.unitins.tp1.repository.CapaceteRepository;
-import br.unitins.tp1.repository.ModeloRepository;
-import br.unitins.tp1.repository.ViseiraRepository;
+import br.unitins.tp1.repository.capacete.CapaceteRepository;
+import br.unitins.tp1.repository.capacete.ModeloRepository;
+import br.unitins.tp1.repository.capacete.ViseiraRepository;
 import jakarta.persistence.EntityNotFoundException;
 
         @ApplicationScoped

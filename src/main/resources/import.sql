@@ -70,6 +70,19 @@ insert into usuario(username, senha, perfil, id_pessoafisica)
         2);
 
 
+-- Telefones
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (1, '63', '999999999');
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (1, '61', '988888888');
+
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (2, '62', '977777777');
+
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (3, '63', '966666666');
+
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (4, '11', '955555555');
+
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (5, '21', '944444444');
+INSERT INTO usuario_telefone (id_usuario, codigo_area, numero) VALUES (5, '63', '933333333');
+
 -- inserindo estados
 insert into estado (nome, sigla, regiao) values ('Tocantins', 'TO', 2);
 insert into estado (nome, sigla, regiao) values ('São Paulo', 'SP', 4);
